@@ -35,6 +35,7 @@ export const dict = {
       ctaCommunity: "Entrar no Portal de Apoio",
       heroCover: "/books/pt/box.png",
       proofTitle: "Sobre o que é o Efeito Tigre",
+      proofLabels: ["Queda", "Arquitetura", "Recuperação"],
       proofPoints: [
         "A queda individual: o silêncio, a madrugada e a mente negociando com o abismo.",
         "A arquitetura do sistema: retenção, quase-vitórias e design predatório.",
@@ -265,6 +266,7 @@ export const dict = {
       ctaCommunity: "Enter the Support Portal",
       heroCover: "/books/en/box.png",
       proofTitle: "What Tiger Effect is about",
+      proofLabels: ["Fall", "Architecture", "Recovery"],
       proofPoints: [
         "The individual fall: silence, late nights, and a mind bargaining with the abyss.",
         "The system’s architecture: retention, near-wins, and predatory design.",
