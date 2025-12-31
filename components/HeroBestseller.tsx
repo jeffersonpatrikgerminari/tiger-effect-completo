@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useI18n } from "@/components/LangProvider";
 import { cn } from "@/lib/utils";
-import { useEffect, useMemo, useState } from "react";
 
 type Book = {
   vol: string;
@@ -15,60 +14,22 @@ type Book = {
   logline: string;
 };
 
-function bust(src: string, v = "20260101") {
-  if (!src) return src;
-  return src.includes("?") ? `${src}&v=${v}` : `${src}?v=${v}`;
-}
-
-function pickVol(books: Book[], n: 1 | 2 | 3) {
-  const re = new RegExp(`\\b(${n})\\b`);
-  // tenta achar por "Vol. 1", "VOL 1", "Volume 1", etc.
-  return books.find((b) => {
-    const v = String(b.vol || "").toLowerCase();
-    if (v.includes("box")) return false;
-    return v.includes(`vol`) && re.test(v.replace(/[^\w\s.]/g, " "));
-  });
-}
-
 export default function HeroBestseller({ books }: { books: Book[] }) {
   const { t } = useI18n();
 
-  const list = Array.isArray(books) ? books : [];
-
-  // BOX (se existir na lista; se não, pega do i18n)
   const boxFromList =
-    list.find((b) => String(b.vol).toUpperCase() === "BOX")?.cover || "";
+    books?.find((b) => String(b.vol).toUpperCase() === "BOX")?.cover || "";
 
   const boxCover =
     boxFromList ||
-    ((t("trilogy.boxCover") as string) ?? "") ||
-    ((t("home.heroCover") as string) ?? "") ||
+    (t("trilogy.boxCover") as string) ||
+    (t("home.heroCover") as string) ||
     "";
 
-  // tenta BOX pt/en se o caminho do i18n não bater
-  const boxCandidates = useMemo(() => {
-    const base = [
-      boxCover,
-      "/books/pt/box.png",
-      "/books/en/box.png"
-    ].filter(Boolean);
-    return Array.from(new Set(base));
-  }, [boxCover]);
-
-  const [boxIdx, setBoxIdx] = useState(0);
-  useEffect(() => setBoxIdx(0), [boxCandidates.length, boxCover]);
-
-  const boxSrc = boxCandidates[boxIdx] || "";
-
-  // ✅ FORÇA Vol. 1, 2, 3 (nunca pega BOX / nunca pega item “aleatório”)
-  const v1 = pickVol(list, 1);
-  const v2 = pickVol(list, 2);
-  const v3 = pickVol(list, 3);
-
-  const fallbackNonBox = list.filter((b) => String(b.vol).toUpperCase() !== "BOX");
-
-  const stack: Book[] = [v1, v2, v3].filter(Boolean) as Book[];
-  const finalStack = stack.length === 3 ? stack : fallbackNonBox.slice(0, 3);
+  // ✅ sempre pega só os 3 volumes (sem BOX)
+  const stack = (books || [])
+    .filter((b) => String(b.vol).toUpperCase() !== "BOX")
+    .slice(0, 3);
 
   return (
     <section className="relative overflow-hidden">
@@ -133,37 +94,37 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative isolate mx-auto h-[420px] w-[340px] md:ml-auto">
+            <div className="relative mx-auto h-[420px] w-[340px] md:ml-auto">
               {/* base plate */}
-              <div className="absolute inset-0 z-0 rounded-[28px] border border-white/10 bg-white/5 shadow-glow backdrop-blur" />
-              <div className="absolute inset-0 z-0 rounded-[28px] [mask-image:radial-gradient(circle_at_60%_20%,black,transparent_70%)] bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,.20),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,.12),transparent_42%)]" />
+              <div className="absolute inset-0 rounded-[28px] border border-white/10 bg-white/5 shadow-glow backdrop-blur" />
+              <div className="absolute inset-0 rounded-[28px] [mask-image:radial-gradient(circle_at_60%_20%,black,transparent_70%)] bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,.20),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,.12),transparent_42%)]" />
 
-              {/* BOX atrás */}
-              {boxSrc ? (
+              {/* ✅ BOX atrás (dentro do quadrado) */}
+              {boxCover ? (
                 <motion.div
-                  className="absolute inset-0 z-[1] rounded-[28px] overflow-hidden pointer-events-none"
-                  animate={{ y: [0, -8, 0], rotate: [-1.3, 1.3, -1.3] }}
+                  className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none"
+                  style={{ zIndex: 1 }}
+                  animate={{ y: [0, -8, 0], rotate: [-1.2, 1.2, -1.2] }}
                   transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <div className="absolute inset-8 md:inset-10 rounded-[22px] overflow-hidden relative">
+                  <div className="absolute inset-8 md:inset-10 rounded-[22px] overflow-hidden">
                     <Image
-                      src={bust(boxSrc)}
+                      src={boxCover}
                       alt="Box set cover"
                       fill
-                      sizes="420px"
-                      className="object-cover opacity-[0.45] scale-[1.03]"
-                      onError={() =>
-                        setBoxIdx((i) => (i + 1 < boxCandidates.length ? i + 1 : i))
-                      }
+                      unoptimized
+                      className="object-cover opacity-[0.80] scale-[1.04]"
+                      sizes="340px"
+                      priority
                     />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,0,0,.10),rgba(0,0,0,.70))]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,0,0,.10),rgba(0,0,0,.55))]" />
                     <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.55),transparent_60%)]" />
                   </div>
                 </motion.div>
               ) : null}
 
-              {/* 3 livros na frente */}
-              {finalStack.map((b, i) => {
+              {/* ✅ 3 livros em primeiro plano */}
+              {stack.map((b, i) => {
                 const rotate = i === 0 ? -10 : i === 1 ? 0 : 10;
                 const x = i === 0 ? -22 : i === 1 ? 0 : 22;
                 const z = i === 1 ? 30 : 10;
@@ -171,14 +132,18 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
 
                 return (
                   <motion.div
-                    key={`${b.title}-${b.cover}-${i}`}
+                    key={b.title}
                     className={cn(
                       "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
                       "w-[210px] h-[310px] md:w-[220px] md:h-[324px]"
                     )}
                     style={{ transformStyle: "preserve-3d", zIndex }}
                     animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{
+                      duration: 5 + i,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
                   >
                     <div
                       className="relative h-full w-full rounded-2xl overflow-hidden border border-white/10"
@@ -189,9 +154,10 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
                       }}
                     >
                       <Image
-                        src={bust(b.cover)}
+                        src={b.cover}
                         alt={b.title}
                         fill
+                        unoptimized
                         className="object-cover"
                         sizes="240px"
                         priority={i === 1}
