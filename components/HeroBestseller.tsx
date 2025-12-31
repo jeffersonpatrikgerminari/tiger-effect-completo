@@ -14,24 +14,16 @@ type Book = {
   logline: string;
 };
 
-const isBox = (b: Book) => String(b.vol).trim().toUpperCase() === "BOX";
+const ASSET_V = process.env.NEXT_PUBLIC_ASSET_V ?? "1";
+const asset = (src: string) => (src ? `${src}?v=${ASSET_V}` : src);
 
 export default function HeroBestseller({ books }: { books: Book[] }) {
-  const { t, lang } = useI18n();
+  const { t } = useI18n();
 
-  const safeBooks = Array.isArray(books) ? books : [];
-  const box = safeBooks.find(isBox);
-  const stack = safeBooks.filter((b) => !isBox(b)).slice(0, 3);
-
-  // fallback absoluto (se por algum motivo vier vazio do i18n)
-  const dir = lang === "pt" ? "pt" : "en";
-  const boxSrc = box?.cover || `/books/${dir}/box.png`;
-  const stackFallback: Book[] = [
-    { vol: "Vol. 1", title: "", cover: `/books/${dir}/vol1.png`, logline: "" },
-    { vol: "Vol. 2", title: "", cover: `/books/${dir}/vol2.png`, logline: "" },
-    { vol: "Vol. 3", title: "", cover: `/books/${dir}/vol3.png`, logline: "" }
-  ];
-  const finalStack = stack.length ? stack : stackFallback;
+  const box = (books || []).find((b) => String(b.vol).toUpperCase() === "BOX");
+  const stack = (books || [])
+    .filter((b) => String(b.vol).toUpperCase() !== "BOX")
+    .slice(0, 3);
 
   return (
     <section className="relative overflow-hidden">
@@ -101,83 +93,79 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
               <div className="absolute inset-0 rounded-[28px] border border-white/10 bg-white/5 shadow-glow backdrop-blur" />
               <div className="absolute inset-0 rounded-[28px] [mask-image:radial-gradient(circle_at_60%_20%,black,transparent_70%)] bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,.20),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,.12),transparent_42%)]" />
 
-              {/* BOX atrás (dentro da placa) */}
-              <motion.div
-                className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none"
-                style={{ zIndex: 1 }}
-                animate={{ y: [0, -8, 0], rotate: [-1.2, 1.2, -1.2] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="absolute inset-8 md:inset-10 rounded-[22px] overflow-hidden">
-                  <Image
-                    src={boxSrc}
-                    alt="Box set"
-                    fill
-                    sizes="340px"
-                    className="object-cover opacity-[0.85] scale-[1.04]"
-                    unoptimized
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,0,0,.10),rgba(0,0,0,.55))]" />
-                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.55),transparent_60%)]" />
-                </div>
-              </motion.div>
+              {/* BOX atrás (dentro do quadrado) */}
+              {box?.cover ? (
+                <motion.div
+                  className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none"
+                  style={{ zIndex: 5 }}
+                  animate={{ y: [0, -8, 0], rotate: [-1.2, 1.2, -1.2] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <div className="absolute inset-8 md:inset-10 rounded-[22px] overflow-hidden">
+                    <Image
+                      src={asset(box.cover)}
+                      alt={box.title}
+                      fill
+                      unoptimized
+                      className="object-cover opacity-[0.78] scale-[1.04]"
+                      sizes="340px"
+                      priority={false}
+                    />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,0,0,.10),rgba(0,0,0,.55))]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.55),transparent_60%)]" />
+                  </div>
+                </motion.div>
+              ) : null}
 
-              {/* livros em primeiro plano (com wrapper fixo + motion interno) */}
-              {finalStack.map((b, i) => {
+              {/* Livros na frente (voltando) */}
+              {stack.map((b, i) => {
                 const rotate = i === 0 ? -10 : i === 1 ? 0 : 10;
                 const x = i === 0 ? -22 : i === 1 ? 0 : 22;
+                const z = i === 1 ? 30 : 10;
                 const zIndex = i === 1 ? 30 : i === 0 ? 20 : 10;
 
                 return (
-                  <div
-                    key={`${b.vol}-${b.cover}`}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                    style={{ zIndex }}
+                  <motion.div
+                    key={b.title}
+                    className={cn(
+                      "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
+                      "w-[210px] h-[310px] md:w-[220px] md:h-[324px]"
+                    )}
+                    style={{ transformStyle: "preserve-3d", zIndex }}
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    <motion.div
-                      animate={{ y: [0, -6, 0] }}
-                      transition={{
-                        duration: 5 + i,
-                        repeat: Infinity,
-                        ease: "easeInOut"
+                    <div
+                      className="relative h-full w-full rounded-2xl overflow-hidden border border-white/10"
+                      style={{
+                        transform: `translateX(${x}px) rotate(${rotate}deg) translateZ(${z}px)`,
+                        boxShadow:
+                          "0 30px 70px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.08)"
                       }}
                     >
-                      <div
-                        className={cn(
-                          "relative rounded-2xl overflow-hidden border border-white/10",
-                          "w-[210px] h-[310px] md:w-[220px] md:h-[324px]"
-                        )}
-                        style={{
-                          transform: `translateX(${x}px) rotate(${rotate}deg)`,
-                          boxShadow:
-                            "0 30px 70px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.08)"
-                        }}
-                      >
-                        <Image
-                          src={b.cover}
-                          alt={b.title || b.vol}
-                          fill
-                          sizes="240px"
-                          className="object-cover"
-                          unoptimized
-                          priority={i === 1}
-                        />
-                        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.78),transparent_55%)]" />
-                        <div className="absolute bottom-3 left-3 right-3">
-                          <div className="text-[10px] font-mono tracking-widest text-gold-soft/90">
-                            {b.vol}
-                          </div>
-                          <div className="mt-1 text-sm font-semibold leading-tight">
-                            {b.title}
-                          </div>
-                          <div className="mt-1 text-[11px] text-white/65">
-                            {b.logline}
-                          </div>
+                      <Image
+                        src={asset(b.cover)}
+                        alt={b.title}
+                        fill
+                        unoptimized
+                        className="object-cover"
+                        sizes="240px"
+                        priority={i === 1}
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.78),transparent_55%)]" />
+                      <div className="absolute bottom-3 left-3 right-3">
+                        <div className="text-[10px] font-mono tracking-widest text-gold-soft/90">
+                          {b.vol}
+                        </div>
+                        <div className="mt-1 text-sm font-semibold leading-tight">
+                          {b.title}
+                        </div>
+                        <div className="mt-1 text-[11px] text-white/65">
+                          {b.logline}
                         </div>
                       </div>
-                    </motion.div>
-                  </div>
+                    </div>
+                  </motion.div>
                 );
               })}
             </div>
