@@ -172,6 +172,46 @@ export const dict = {
       publish: "Publicar",
       emptyForum:
         "Ainda não há tópicos. Seja a primeira pessoa a abrir uma conversa."
+,
+      removedTag: "Removido",
+      removedContent: "Conteúdo removido pela moderação.",
+      loginRequired: "Você precisa estar logado.",
+      publishError: "Erro ao publicar.",
+      replyTitle: "Responder",
+      replyPlaceholder: "Escreva sua resposta…",
+      publishReply: "Publicar resposta",
+      replies: "Respostas",
+      noReplies: "Ainda não há respostas. Seja a primeira pessoa a responder.",
+      replyError: "Erro ao publicar resposta.",
+      replyDisabledRemoved: "Este tópico foi removido. Respostas desativadas.",
+      report: "Denunciar",
+      reportTitle: "Denunciar conteúdo",
+      reportReason: "Motivo",
+      reportDetails: "Detalhes",
+      optionalDetails: "Opcional: descreva o problema",
+      sendReport: "Enviar denúncia",
+      reportSent: "Denúncia enviada.",
+      reportError: "Erro ao enviar denúncia.",
+      reportReasons: {
+        spam: "Spam / Golpe",
+        hate: "Discurso de ódio",
+        harassment: "Assédio / Ameaça",
+        self_harm: "Autoagressão",
+        illegal: "Ilegal / Perigoso",
+        other: "Outro"
+      },
+      adminTools: "Ferramentas do administrador",
+      openReports: "Ver denúncias",
+      adminReportsTitle: "Denúncias",
+      adminReportsLead: "Gerencie denúncias e remova conteúdos problemáticos.",
+      markResolved: "Marcar resolvida",
+      noReports: "Nenhuma denúncia encontrada.",
+      noDetails: "Sem detalhes adicionais.",
+      targetMissing: "Publicação não encontrada (pode ter sido removida).",
+      openTopic: "Abrir tópico",
+      topicNotFound: "Tópico não encontrado.",
+      adminRemove: "Remover"
+
     },
     footer: {
       note:
@@ -351,6 +391,46 @@ export const dict = {
       publish: "Publish",
       emptyForum:
         "No topics yet. Be the first to open a conversation."
+,
+      removedTag: "Removed",
+      removedContent: "Content removed by moderation.",
+      loginRequired: "You must be logged in.",
+      publishError: "Failed to publish.",
+      replyTitle: "Reply",
+      replyPlaceholder: "Write your reply…",
+      publishReply: "Post reply",
+      replies: "Replies",
+      noReplies: "No replies yet. Be the first to reply.",
+      replyError: "Failed to post reply.",
+      replyDisabledRemoved: "This topic was removed. Replies are disabled.",
+      report: "Report",
+      reportTitle: "Report content",
+      reportReason: "Reason",
+      reportDetails: "Details",
+      optionalDetails: "Optional: describe the issue",
+      sendReport: "Send report",
+      reportSent: "Report sent.",
+      reportError: "Failed to send report.",
+      reportReasons: {
+        spam: "Spam / Scam",
+        hate: "Hate speech",
+        harassment: "Harassment / Threats",
+        self_harm: "Self-harm",
+        illegal: "Illegal / Dangerous",
+        other: "Other"
+      },
+      adminTools: "Admin tools",
+      openReports: "View reports",
+      adminReportsTitle: "Reports",
+      adminReportsLead: "Review reports and remove harmful content.",
+      markResolved: "Mark resolved",
+      noReports: "No reports found.",
+      noDetails: "No extra details.",
+      targetMissing: "Post not found (it may have been removed).",
+      openTopic: "Open topic",
+      topicNotFound: "Topic not found.",
+      adminRemove: "Remove"
+
     },
     footer: {
       note:
