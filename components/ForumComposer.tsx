@@ -4,9 +4,11 @@ import { useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { Send } from "lucide-react";
 import { useI18n } from "@/components/LangProvider";
+import { useRouter } from "next/navigation";
 
 export default function ForumComposer({ onCreated }: { onCreated: () => void }) {
   const { t } = useI18n();
+  const router = useRouter();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [busy, setBusy] = useState(false);
@@ -14,30 +16,37 @@ export default function ForumComposer({ onCreated }: { onCreated: () => void }) 
 
   async function publish() {
     setError(null);
-    if (!title.trim() || !body.trim()) {
-      setError("Preencha título e mensagem.");
-      return;
-    }
-
     setBusy(true);
+
     try {
-      const {
-        data: { user }
-      } = await supabase.auth.getUser();
+      const { data: u, error: ue } = await supabase.auth.getUser();
+      if (ue) throw ue;
+      if (!u.user) throw new Error(t("community.loginRequired"));
 
-      const { error: insErr } = await supabase.from("forum_topics").insert({
-        title,
-        body,
-        author_email: user?.email ?? null
-      });
+      if (!title.trim()) throw new Error(t("common.required"));
+      if (!body.trim()) throw new Error(t("common.required"));
 
-      if (insErr) throw insErr;
+      const { data, error } = await supabase
+        .from("forum_topics")
+        .insert({
+          title: title.trim(),
+          body: body.trim(),
+          author_email: u.user.email ?? null
+        })
+        .select("id")
+        .single();
+
+      if (error) throw error;
 
       setTitle("");
       setBody("");
       onCreated();
+
+      if (data?.id) {
+        router.push(`/community/forum/${data.id}`);
+      }
     } catch (e: any) {
-      setError(e?.message ?? "Erro ao publicar.");
+      setError(e?.message ?? t("community.publishError"));
     } finally {
       setBusy(false);
     }
@@ -68,7 +77,7 @@ export default function ForumComposer({ onCreated }: { onCreated: () => void }) 
         <button
           onClick={publish}
           disabled={busy}
-          className="inline-flex items-center justify-center gap-2 rounded-xl border border-gold/25 bg-gold/10 px-4 py-3 text-sm text-gold-soft hover:bg-gold/15 transition disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 rounded-xl border border-gold/30 bg-gold/10 px-4 py-3 text-sm font-semibold text-gold-soft hover:bg-gold/15 transition disabled:opacity-60"
         >
           <Send className="h-4 w-4" />
           {busy ? t("common.loading") : t("community.publish")}
