@@ -18,6 +18,8 @@ type Book = {
 
 export default function BookCard({ book }: { book: Book }) {
   const { t } = useI18n();
+const ASSET_V = "20251231";
+const withV = (src: string) => (src?.includes("?") ? `${src}&v=${ASSET_V}` : `${src}?v=${ASSET_V}`);
 
   return (
     <motion.article
