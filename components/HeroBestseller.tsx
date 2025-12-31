@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useI18n } from "@/components/LangProvider";
 import { cn } from "@/lib/utils";
-import { useMemo } from "react";
 
 type Book = {
   vol: string;
@@ -15,49 +14,10 @@ type Book = {
   logline: string;
 };
 
-const ASSET_V = "20251231"; // troque quando substituir imagens (ou renomeie os arquivos)
-
-function withV(src: string) {
-  if (!src) return src;
-  if (src.includes("?")) return `${src}&v=${ASSET_V}`;
-  return `${src}?v=${ASSET_V}`;
-}
-
-function normalizeCover(src: string, lang: "pt" | "en") {
-  if (!src) return src;
-
-  // já está no padrão novo
-  if (src.startsWith("/books/pt/") || src.startsWith("/books/en/")) return src;
-
-  // estava no padrão antigo (/books/vol1.png etc.)
-  if (src.startsWith("/books/")) return src.replace("/books/", `/books/${lang}/`);
-
-  // fallback: deixa como está
-  return src;
-}
-
 export default function HeroBestseller({ books }: { books: Book[] }) {
-  const { t, lang } = useI18n();
+  const { t } = useI18n();
 
-  const base = `/books/${lang}`;
-
-  const boxFromList = books?.find((b) => String(b.vol).toUpperCase() === "BOX")?.cover || "";
-  const boxCover = normalizeCover(
-    boxFromList || (t("trilogy.boxCover") as string) || `${base}/box.png`,
-    lang
-  );
-
-  const stack = useMemo(() => {
-    const vols = (books || [])
-      .filter((b) => String(b.vol).toUpperCase() !== "BOX")
-      .slice(0, 3)
-      .map((b) => ({
-        ...b,
-        cover: normalizeCover(b.cover, lang)
-      }));
-
-    return vols;
-  }, [books, lang]);
+  const stack = books.slice(0, 3);
 
   return (
     <section className="relative overflow-hidden">
@@ -129,44 +89,19 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
               <div className="absolute inset-0 rounded-[28px] border border-white/10 bg-white/5 shadow-glow backdrop-blur" />
               <div className="absolute inset-0 rounded-[28px] [mask-image:radial-gradient(circle_at_60%_20%,black,transparent_70%)] bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,.20),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,.12),transparent_42%)]" />
 
-              {/* BOX atrás */}
-              <motion.div
-                key={`box-${lang}-${boxCover}`}
-                className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none"
-                style={{ zIndex: 1 }}
-                animate={{ y: [0, -8, 0], rotate: [-1.3, 1.3, -1.3] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="absolute inset-8 md:inset-10 rounded-[22px] overflow-hidden">
-                  <Image
-                    src={withV(boxCover)}
-                    alt="Box set cover"
-                    fill
-                    unoptimized
-                    className="object-cover opacity-[0.85] scale-[1.04]"
-                    sizes="420px"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,0,0,.10),rgba(0,0,0,.55))]" />
-                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.55),transparent_60%)]" />
-                </div>
-              </motion.div>
-
-              {/* livros em primeiro plano */}
               {stack.map((b, i) => {
                 const rotate = i === 0 ? -10 : i === 1 ? 0 : 10;
                 const x = i === 0 ? -22 : i === 1 ? 0 : 22;
                 const z = i === 1 ? 30 : 10;
-                const zIndex = i === 1 ? 30 : i === 0 ? 20 : 10;
 
                 return (
                   <motion.div
-                    key={`${lang}-${b.title}-${b.cover}`}
+                    key={b.title}
                     className={cn(
                       "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
                       "w-[210px] h-[310px] md:w-[220px] md:h-[324px]"
                     )}
-                    style={{ transformStyle: "preserve-3d", zIndex }}
+                    style={{ transformStyle: "preserve-3d" }}
                     animate={{ y: [0, -6, 0] }}
                     transition={{
                       duration: 5 + i,
@@ -183,10 +118,9 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
                       }}
                     >
                       <Image
-                        src={withV(b.cover)}
+                        src={b.cover}
                         alt={b.title}
                         fill
-                        unoptimized
                         className="object-cover"
                         sizes="240px"
                         priority={i === 1}
@@ -214,3 +148,4 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
     </section>
   );
 }
+
