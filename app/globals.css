@@ -11,13 +11,30 @@
   --alert: #ef4444;
 }
 
-html, body {
-  height: 100%;
+html, body { height: 100%; }
+
+body{
+  color: var(--fg);
+  background:
+    radial-gradient(900px 600px at 20% 10%, rgba(201,162,39,.16), transparent 55%),
+    radial-gradient(800px 600px at 80% 20%, rgba(239,68,68,.12), transparent 55%),
+    radial-gradient(900px 700px at 50% 90%, rgba(255,255,255,.06), transparent 65%),
+    var(--bg);
 }
 
-body {
-  background: var(--bg);
-  color: var(--fg);
+/* Vignette + subtle grid overlay */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(1200px 700px at 50% 20%, transparent 35%, rgba(0,0,0,.75) 85%),
+    linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+  opacity: .22;
 }
 
 /* subtle noise */
@@ -33,6 +50,9 @@ body {
   z-index: 0;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
+::selection{
+  background: rgba(201,162,39,.28);
+  color: rgba(255,255,255,.95);
 }
+
+* { -webkit-tap-highlight-color: transparent; }
