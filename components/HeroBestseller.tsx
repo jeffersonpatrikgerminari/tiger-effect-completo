@@ -15,56 +15,36 @@ type Book = {
   logline: string;
 };
 
-function withAltExts(src: string) {
-  if (!src) return [];
-  const hasExt = /\.[a-zA-Z0-9]+$/.test(src);
-  if (!hasExt) {
-    return [`${src}.png`, `${src}.jpg`, `${src}.jpeg`, `${src}.webp`];
-  }
-  return [
-    src,
-    src.replace(/\.png$/i, ".jpg"),
-    src.replace(/\.png$/i, ".jpeg"),
-    src.replace(/\.png$/i, ".webp"),
-    src.replace(/\.jpg$/i, ".png"),
-    src.replace(/\.jpeg$/i, ".png"),
-    src.replace(/\.webp$/i, ".png")
-  ];
+function isPublicPath(v: unknown): v is string {
+  return typeof v === "string" && v.startsWith("/");
 }
 
 export default function HeroBestseller({ books }: { books: Book[] }) {
   const { t } = useI18n();
 
+  // ✅ pega a box direto do array (vol === "BOX")
   const boxFromList =
-    books?.find((b) => String(b.vol).toUpperCase() === "BOX")?.cover || "";
+    books?.find((b) => String(b?.vol).toUpperCase() === "BOX")?.cover ?? "";
 
-  const boxCover =
-    boxFromList ||
-    ((t("trilogy.boxCover") as string) ?? "") ||
-    ((t("home.heroCover") as string) ?? "") ||
-    "";
-
-  const boxCandidates = useMemo(() => {
-    const base = [
-      ...withAltExts(boxCover),
+  // ✅ fallback absoluto (funciona mesmo se i18n falhar)
+  const boxFallbacks = useMemo(() => {
+    const out = [
+      boxFromList,
       "/books/pt/box.png",
-      "/books/pt/box.jpg",
-      "/books/pt/box.webp",
-      "/books/en/box.png",
-      "/books/en/box.jpg",
-      "/books/en/box.webp"
-    ];
-    // remove duplicados vazios
-    return Array.from(new Set(base.filter(Boolean)));
-  }, [boxCover]);
+      "/books/en/box.png"
+    ].filter(isPublicPath);
+
+    return Array.from(new Set(out));
+  }, [boxFromList]);
 
   const [boxIdx, setBoxIdx] = useState(0);
-  useEffect(() => setBoxIdx(0), [boxCandidates.length, boxCover]);
+  useEffect(() => setBoxIdx(0), [boxFallbacks.length]);
 
-  const boxSrc = boxCandidates[boxIdx] || "";
+  const boxSrc = boxFallbacks[boxIdx];
 
+  // ✅ livros do stack (SEM o BOX)
   const stack = (books || [])
-    .filter((b) => String(b.vol).toUpperCase() !== "BOX")
+    .filter((b) => String(b?.vol).toUpperCase() !== "BOX")
     .slice(0, 3);
 
   return (
@@ -121,12 +101,6 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
             </div>
 
             <div className="mt-6 text-xs text-white/50">{t("home.warning")}</div>
-
-            {/* Debug (apague depois se quiser) */}
-            <div className="mt-3 text-[11px] text-white/35 font-mono break-all">
-              BOX src: {boxSrc || "(vazio)"}{" "}
-              {boxSrc ? `(tentativa ${boxIdx + 1}/${boxCandidates.length})` : ""}
-            </div>
           </motion.div>
 
           {/* Cover stack */}
@@ -138,25 +112,26 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
           >
             <div className="relative mx-auto h-[420px] w-[340px] md:ml-auto">
               {/* base plate */}
-              <div className="absolute inset-0 rounded-[28px] border border-white/10 bg-white/5 shadow-glow backdrop-blur" />
-              <div className="absolute inset-0 rounded-[28px] [mask-image:radial-gradient(circle_at_60%_20%,black,transparent_70%)] bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,.20),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,.12),transparent_42%)]" />
+              <div className="absolute inset-0 z-0 rounded-[28px] border border-white/10 bg-white/5 shadow-glow backdrop-blur" />
+              <div className="absolute inset-0 z-0 rounded-[28px] [mask-image:radial-gradient(circle_at_60%_20%,black,transparent_70%)] bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,.20),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,.12),transparent_42%)]" />
 
-              {/* ✅ BOX atrás */}
+              {/* ✅ BOX atrás dos livros */}
               {boxSrc ? (
                 <motion.div
-                  className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none"
-                  style={{ zIndex: 1 }}
-                  animate={{ y: [0, -8, 0], rotate: [-1.3, 1.3, -1.3] }}
+                  className="absolute inset-0 z-10 rounded-[28px] overflow-hidden pointer-events-none"
+                  animate={{ y: [0, -8, 0], rotate: [-1.1, 1.1, -1.1] }}
                   transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
                 >
                   <div className="absolute inset-8 md:inset-10 rounded-[22px] overflow-hidden">
-                    <img
+                    <Image
                       src={boxSrc}
                       alt="Box set cover"
-                      className="h-full w-full object-cover opacity-[0.8] scale-[1.04]"
+                      fill
+                      className="object-cover opacity-[0.78] scale-[1.03]"
+                      sizes="340px"
                       onError={() =>
                         setBoxIdx((i) =>
-                          i + 1 < boxCandidates.length ? i + 1 : i
+                          i + 1 < boxFallbacks.length ? i + 1 : i
                         )
                       }
                     />
@@ -171,7 +146,7 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
                 const rotate = i === 0 ? -10 : i === 1 ? 0 : 10;
                 const x = i === 0 ? -22 : i === 1 ? 0 : 22;
                 const z = i === 1 ? 30 : 10;
-                const zIndex = i === 1 ? 30 : i === 0 ? 20 : 10;
+                const zIndex = i === 1 ? 30 : i === 0 ? 25 : 20;
 
                 return (
                   <motion.div
