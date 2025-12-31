@@ -34,13 +34,13 @@ const withV = (src: string) => (src?.includes("?") ? `${src}&v=${ASSET_V}` : `${
         {/* cover */}
         <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
           <Image
-            src={book.cover}
-            alt={book.title}
-            fill
-            className="object-cover transition duration-500 group-hover:scale-[1.03]"
-            sizes="(max-width: 1024px) 100vw, 33vw"
-            priority={false}
-          />
+  src={withV(book.cover)}
+  alt={book.title}
+  fill
+  unoptimized
+  className="object-cover transition duration-500 group-hover:scale-[1.03]"
+  sizes="(max-width: 1024px) 100vw, 33vw"
+/>
           {/* cinematic overlay */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_10%,rgba(201,162,39,.22),transparent_35%),linear-gradient(to_top,rgba(0,0,0,.82),transparent_55%)]" />
 
