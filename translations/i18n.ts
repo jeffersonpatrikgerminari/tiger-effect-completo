@@ -33,6 +33,7 @@ export const dict = {
       ctaTrilogy: "Explorar a Trilogia",
       ctaAlgorithm: "Entender o Algoritmo",
       ctaCommunity: "Entrar no Portal de Apoio",
+      heroCover: "/books/pt/box.png",
       proofTitle: "Sobre o que é o Efeito Tigre",
       proofPoints: [
         "A queda individual: o silêncio, a madrugada e a mente negociando com o abismo.",
@@ -48,12 +49,23 @@ export const dict = {
         "Três volumes, um mesmo padrão: o lucro real não está na vitória — está na permanência.",
       boxText:
         "Não é sobre “perdedores”. É sobre a mentira moderna do atalho — e o preço do ciclo.",
+      boxCover: "/books/pt/box.png",
       books: [
+        {
+          vol: "BOX",
+          title: "Efeito Tigre",
+          titleEnHint: "Tiger Effect (Box Set)",
+          cover: "/books/pt/box.png",
+          logline: "A trilogia completa.",
+          synopsis:
+            "O box reúne os três volumes — a queda individual, a arquitetura do algoritmo e a recuperação como ato coletivo. Um mesmo padrão atravessa tudo: a interface não vende vitória; vende permanência. E, no centro, a pergunta incômoda: o que está sendo treinado em você, repetição após repetição?",
+          buyUrl: "#"
+        },
         {
           vol: "Vol. 1",
           title: "Nas Garras do Tigre",
-          titleEnHint: "The Tiger’s Grip",
-          cover: "/books/vol1.jpg",
+          titleEnHint: "In the Tiger’s Grip",
+          cover: "/books/pt/vol1.png",
           logline: "A queda individual.",
           synopsis:
             "André, às 03:14, encara um retângulo luminoso no silêncio da casa. O que começou como curiosidade vira urgência: uma plataforma desenhada para converter frustração em repetição e esperança em combustível. Aqui, o tempo é medido em ciclos — e cada ciclo cobra mais.",
@@ -63,7 +75,7 @@ export const dict = {
           vol: "Vol. 2",
           title: "A Fome do Tigre",
           titleEnHint: "The Tiger’s Hunger",
-          cover: "/books/vol2.jpg",
+          cover: "/books/pt/vol2.png",
           logline: "A arquitetura do sistema/algoritmo.",
           synopsis:
             "Neste volume, a narrativa entra no coração do sistema: a engenharia do quase, o ponto de orvalho e a retenção como método. Não há vilões caricatos; há uma infraestrutura que aprende com cada clique e reorganiza o ambiente para que as escolhas pareçam livres.",
@@ -73,7 +85,7 @@ export const dict = {
           vol: "Vol. 3",
           title: "O Tigre de Vidro: Cemitério de Ilusões",
           titleEnHint: "The Glass Tiger: Cemetery of Illusions",
-          cover: "/books/vol3.jpg",
+          cover: "/books/pt/vol3.png",
           logline: "A recuperação e grupos de apoio.",
           synopsis:
             "O jogo sai do centro e entram as pessoas. Um grupo de apoio, histórias diferentes e um desfecho estruturalmente idêntico: ninguém começa pelo dinheiro. Começa por dor, cansaço, luto e solidão. A saída não é sorte — é reconhecimento, fala e presença.",
@@ -171,8 +183,7 @@ export const dict = {
       topicBody: "Mensagem",
       publish: "Publicar",
       emptyForum:
-        "Ainda não há tópicos. Seja a primeira pessoa a abrir uma conversa."
-,
+        "Ainda não há tópicos. Seja a primeira pessoa a abrir uma conversa.",
       removedTag: "Removido",
       removedContent: "Conteúdo removido pela moderação.",
       loginRequired: "Você precisa estar logado.",
@@ -211,7 +222,6 @@ export const dict = {
       openTopic: "Abrir tópico",
       topicNotFound: "Tópico não encontrado.",
       adminRemove: "Remover"
-
     },
     footer: {
       note:
@@ -252,6 +262,7 @@ export const dict = {
       ctaTrilogy: "Explore the Trilogy",
       ctaAlgorithm: "Understand the Algorithm",
       ctaCommunity: "Enter the Support Portal",
+      heroCover: "/books/en/box.png",
       proofTitle: "What Tiger Effect is about",
       proofPoints: [
         "The individual fall: silence, late nights, and a mind bargaining with the abyss.",
@@ -267,12 +278,23 @@ export const dict = {
         "Three volumes, one pattern: the real profit isn’t in winning — it’s in staying.",
       boxText:
         "Not about “losers”. About the modern lie of shortcuts — and the cost of the cycle.",
+      boxCover: "/books/en/box.png",
       books: [
+        {
+          vol: "BOX",
+          title: "Tiger Effect",
+          titleEnHint: "Tiger Effect (Box Set)",
+          cover: "/books/en/box.png",
+          logline: "The complete trilogy.",
+          synopsis:
+            "The box set brings all three volumes together — the individual fall, the algorithm’s architecture, and recovery as a collective act. One pattern runs through everything: the interface doesn’t sell victory; it sells staying. And at the center is the uncomfortable question: what is being trained in you, repetition after repetition?",
+          buyUrl: "#"
+        },
         {
           vol: "Vol. 1",
           title: "In the Tiger’s Grip",
-          titleEnHint: "The Tiger’s Grip",
-          cover: "/books/vol1.jpg",
+          titleEnHint: "In the Tiger’s Grip",
+          cover: "/books/en/vol1.png",
           logline: "The individual fall.",
           synopsis:
             "At 03:14, André faces a glowing rectangle in the silence of home. What began as curiosity becomes urgency: a platform engineered to turn frustration into repetition and hope into fuel. Here, time is measured in cycles — and each cycle charges more.",
@@ -282,7 +304,7 @@ export const dict = {
           vol: "Vol. 2",
           title: "The Tiger’s Hunger",
           titleEnHint: "The Tiger’s Hunger",
-          cover: "/books/vol2.jpg",
+          cover: "/books/en/vol2.png",
           logline: "The system/algorithm architecture.",
           synopsis:
             "This volume enters the system’s core: near-miss engineering, the dew-point window, and retention as method. No cartoon villains — just an infrastructure that learns from every click and rearranges the environment so choices feel free.",
@@ -292,7 +314,7 @@ export const dict = {
           vol: "Vol. 3",
           title: "The Glass Tiger: Cemetery of Illusions",
           titleEnHint: "The Glass Tiger: Cemetery of Illusions",
-          cover: "/books/vol3.jpg",
+          cover: "/books/en/vol3.png",
           logline: "Recovery and support groups.",
           synopsis:
             "The game steps aside and people take the stage. A support group, different lives, the same structural ending: nobody starts with money. They start with pain, grief, exhaustion, and loneliness. The way out isn’t luck — it’s recognition, voice, and presence.",
@@ -390,8 +412,7 @@ export const dict = {
       topicBody: "Message",
       publish: "Publish",
       emptyForum:
-        "No topics yet. Be the first to open a conversation."
-,
+        "No topics yet. Be the first to open a conversation.",
       removedTag: "Removed",
       removedContent: "Content removed by moderation.",
       loginRequired: "You must be logged in.",
@@ -430,7 +451,6 @@ export const dict = {
       openTopic: "Open topic",
       topicNotFound: "Topic not found.",
       adminRemove: "Remove"
-
     },
     footer: {
       note:
@@ -439,3 +459,4 @@ export const dict = {
     }
   }
 } as const;
+
