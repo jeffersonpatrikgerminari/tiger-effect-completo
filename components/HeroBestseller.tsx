@@ -132,31 +132,30 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
               <div className="absolute inset-0 z-0 rounded-[28px] border border-white/10 bg-white/5 shadow-glow backdrop-blur" />
               <div className="absolute inset-0 z-0 rounded-[28px] [mask-image:radial-gradient(circle_at_60%_20%,black,transparent_70%)] bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,.20),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,.12),transparent_42%)]" />
 
-              {/* ✅ BOX atrás (com next/image) */}
-{boxSrc ? (
-  <motion.div
-    className="absolute inset-0 z-[1] rounded-[28px] overflow-hidden pointer-events-none"
-    animate={{ y: [0, -8, 0], rotate: [-1.3, 1.3, -1.3] }}
-    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-  >
-    <div className="absolute inset-8 md:inset-10 rounded-[22px] overflow-hidden relative">
-      <Image
-        key={boxSrc}              // força atualizar ao trocar idioma
-        src={boxSrc}
-        alt="Box set cover"
-        fill
-        sizes="420px"
-        className="object-cover opacity-[0.92] scale-[1.02]"
-        priority
-        onError={() =>
-          setBoxIdx((i) => (i + 1 < boxCandidates.length ? i + 1 : i))
-        }
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.35),transparent_65%)]" />
-    </div>
-  </motion.div>
-) : null}
-
+              {/* ✅ BOX atrás (agora com next/image) */}
+              {boxSrc ? (
+                <motion.div
+                  className="absolute inset-0 z-[1] rounded-[28px] overflow-hidden pointer-events-none"
+                  animate={{ y: [0, -8, 0], rotate: [-1.3, 1.3, -1.3] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <div className="absolute inset-8 md:inset-10 rounded-[22px] overflow-hidden">
+                    <Image
+                      key={boxSrc}
+                      src={boxSrc}
+                      alt="Box set cover"
+                      fill
+                      sizes="420px"
+                      className="object-cover opacity-[0.92] scale-[1.02]"
+                      priority
+                      onError={() =>
+                        setBoxIdx((i) => (i + 1 < boxCandidates.length ? i + 1 : i))
+                      }
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.35),transparent_65%)]" />
+                  </div>
+                </motion.div>
+              ) : null}
 
               {/* livros na frente */}
               {stack.map((b, i) => {
@@ -215,6 +214,5 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
     </section>
   );
 }
-
 
 
