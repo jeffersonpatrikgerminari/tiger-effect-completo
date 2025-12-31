@@ -1,169 +1,221 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 import { useI18n } from "@/components/LangProvider";
+import { cn } from "@/lib/utils";
+import { useEffect, useMemo, useState } from "react";
 
-type HeroBook = {
+type Book = {
   vol: string;
   title: string;
   cover: string;
-  logline?: string;
+  logline: string;
 };
 
-export default function HeroBestseller({
-  books,
-  boxCover
-}: {
-  books: HeroBook[];
-  boxCover?: string;
-}) {
+function bust(src: string, v = "20260101") {
+  if (!src) return src;
+  return src.includes("?") ? `${src}&v=${v}` : `${src}?v=${v}`;
+}
+
+function pickVol(books: Book[], n: 1 | 2 | 3) {
+  const re = new RegExp(`\\b(${n})\\b`);
+  // tenta achar por "Vol. 1", "VOL 1", "Volume 1", etc.
+  return books.find((b) => {
+    const v = String(b.vol || "").toLowerCase();
+    if (v.includes("box")) return false;
+    return v.includes(`vol`) && re.test(v.replace(/[^\w\s.]/g, " "));
+  });
+}
+
+export default function HeroBestseller({ books }: { books: Book[] }) {
   const { t } = useI18n();
-  const trio = books.slice(0, 3);
+
+  const list = Array.isArray(books) ? books : [];
+
+  // BOX (se existir na lista; se não, pega do i18n)
+  const boxFromList =
+    list.find((b) => String(b.vol).toUpperCase() === "BOX")?.cover || "";
+
+  const boxCover =
+    boxFromList ||
+    ((t("trilogy.boxCover") as string) ?? "") ||
+    ((t("home.heroCover") as string) ?? "") ||
+    "";
+
+  // tenta BOX pt/en se o caminho do i18n não bater
+  const boxCandidates = useMemo(() => {
+    const base = [
+      boxCover,
+      "/books/pt/box.png",
+      "/books/en/box.png"
+    ].filter(Boolean);
+    return Array.from(new Set(base));
+  }, [boxCover]);
+
+  const [boxIdx, setBoxIdx] = useState(0);
+  useEffect(() => setBoxIdx(0), [boxCandidates.length, boxCover]);
+
+  const boxSrc = boxCandidates[boxIdx] || "";
+
+  // ✅ FORÇA Vol. 1, 2, 3 (nunca pega BOX / nunca pega item “aleatório”)
+  const v1 = pickVol(list, 1);
+  const v2 = pickVol(list, 2);
+  const v3 = pickVol(list, 3);
+
+  const fallbackNonBox = list.filter((b) => String(b.vol).toUpperCase() !== "BOX");
+
+  const stack: Book[] = [v1, v2, v3].filter(Boolean) as Book[];
+  const finalStack = stack.length === 3 ? stack : fallbackNonBox.slice(0, 3);
 
   return (
     <section className="relative overflow-hidden">
-      {/* background */}
-      <div className="absolute inset-0 bg-neutral-950" />
-      <div className="pointer-events-none absolute -left-32 -top-40 h-[520px] w-[520px] rounded-full bg-gold/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-40 -bottom-40 h-[560px] w-[560px] rounded-full bg-red-500/10 blur-3xl" />
+      {/* extra glow layers */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute -top-40 left-1/2 h-[680px] w-[680px] -translate-x-1/2 rounded-full bg-gold/12 blur-3xl" />
+        <div className="absolute -bottom-52 right-[-120px] h-[620px] w-[620px] rounded-full bg-alert/10 blur-3xl" />
+      </div>
 
-      <div className="mx-auto max-w-6xl px-4 pt-14 pb-10 md:pt-18 md:pb-14">
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
-          {/* left */}
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-              <span className="h-2 w-2 rounded-full bg-gold/70" />
+      <div className="mx-auto max-w-6xl px-4 py-14 md:py-24">
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          {/* Copy */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="max-w-xl"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-mono text-white/70">
+              <span className="h-2 w-2 rounded-full bg-gold" />
               {t("home.heroTag")}
             </div>
 
-            <h1 className="mt-5 text-4xl leading-[1.05] md:text-6xl font-semibold tracking-tight text-white">
+            <h1 className="mt-5 text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
               {t("home.heroTitle")}
             </h1>
 
-            <p className="mt-5 max-w-xl text-base md:text-lg text-white/70">
+            <p className="mt-5 text-base md:text-lg text-white/70">
               {t("home.heroLead")}
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href="/#trilogy"
-                className="inline-flex items-center justify-center rounded-xl border border-gold/25 bg-gold/10 px-5 py-3 text-sm text-gold-soft hover:bg-gold/15 transition"
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/trilogy"
+                className="inline-flex items-center gap-2 rounded-xl border border-gold/25 bg-gold/10 px-5 py-3 text-sm text-gold-soft hover:bg-gold/15 transition"
               >
-                {t("home.ctaTrilogy")}
-              </a>
-              <a
-                href="/#algorithm"
-                className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-white/85 hover:bg-white/10 transition"
-              >
-                {t("home.ctaAlgorithm")}
-              </a>
-              <a
+                {t("home.ctaTrilogy")} <ChevronRight className="h-4 w-4" />
+              </Link>
+
+              <Link
                 href="/community"
-                className="inline-flex items-center justify-center rounded-xl border border-red-500/25 bg-red-500/10 px-5 py-3 text-sm text-white/90 hover:bg-red-500/15 transition"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-white/80 hover:bg-white/10 transition"
               >
-                {t("home.ctaCommunity")}
-              </a>
+                {t("home.ctaCommunity")} <ChevronRight className="h-4 w-4" />
+              </Link>
+
+              <Link
+                href="/algorithm"
+                className="inline-flex items-center gap-2 rounded-xl border border-alert/25 bg-alert/10 px-5 py-3 text-sm text-white/90 hover:bg-alert/15 transition"
+              >
+                {t("home.ctaAlgorithm")} <ChevronRight className="h-4 w-4" />
+              </Link>
             </div>
 
-            <p className="mt-6 text-xs text-white/55">
-              {t("home.warning")}
-            </p>
-          </div>
+            <div className="mt-6 text-xs text-white/50">{t("home.warning")}</div>
+          </motion.div>
 
-          {/* right: premium frame */}
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-[28px] border border-gold/20 bg-[radial-gradient(120%_120%_at_10%_0%,rgba(200,160,60,0.25),rgba(255,255,255,0.04),rgba(0,0,0,0)_70%)] p-6 shadow-glow backdrop-blur">
-              {/* inner frame */}
-              <div className="relative h-[360px] md:h-[440px] rounded-[22px] border border-gold/15 bg-gradient-to-b from-[#2a2319]/70 to-black/30">
-                {/* ✅ BOX cover behind */}
-                <div className="absolute inset-0 grid place-items-center">
-                  <img
-                    src={boxCover || trio[0]?.cover}
-                    alt=""
-                    className="pointer-events-none select-none w-[68%] max-w-[340px] opacity-[0.22] saturate-110 contrast-110 blur-[0.2px] rotate-[-6deg] scale-[1.06] drop-shadow-[0_25px_45px_rgba(0,0,0,0.55)]"
-                  />
-                  {/* subtle glow */}
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_55%_at_50%_55%,rgba(200,160,60,0.18),rgba(0,0,0,0)_70%)]" />
-                </div>
+          {/* Cover stack */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            <div className="relative isolate mx-auto h-[420px] w-[340px] md:ml-auto">
+              {/* base plate */}
+              <div className="absolute inset-0 z-0 rounded-[28px] border border-white/10 bg-white/5 shadow-glow backdrop-blur" />
+              <div className="absolute inset-0 z-0 rounded-[28px] [mask-image:radial-gradient(circle_at_60%_20%,black,transparent_70%)] bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,.20),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,.12),transparent_42%)]" />
 
-                {/* ✅ floating trio */}
-                <div className="absolute inset-0">
-                  {/* base shadow */}
-                  <div className="pointer-events-none absolute bottom-7 left-1/2 h-10 w-[240px] -translate-x-1/2 rounded-full bg-black/45 blur-2xl" />
-
-                  {/* stack */}
-                  {trio[0] && (
-                    <img
-                      src={trio[0].cover}
-                      alt={trio[0].title}
-                      className="bookFloat1 absolute bottom-10 left-1/2 w-[165px] md:w-[190px] -translate-x-[140px] rotate-[-12deg] rounded-xl shadow-[0_30px_70px_rgba(0,0,0,0.65)]"
+              {/* BOX atrás */}
+              {boxSrc ? (
+                <motion.div
+                  className="absolute inset-0 z-[1] rounded-[28px] overflow-hidden pointer-events-none"
+                  animate={{ y: [0, -8, 0], rotate: [-1.3, 1.3, -1.3] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <div className="absolute inset-8 md:inset-10 rounded-[22px] overflow-hidden relative">
+                    <Image
+                      src={bust(boxSrc)}
+                      alt="Box set cover"
+                      fill
+                      sizes="420px"
+                      className="object-cover opacity-[0.45] scale-[1.03]"
+                      onError={() =>
+                        setBoxIdx((i) => (i + 1 < boxCandidates.length ? i + 1 : i))
+                      }
                     />
-                  )}
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,0,0,.10),rgba(0,0,0,.70))]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.55),transparent_60%)]" />
+                  </div>
+                </motion.div>
+              ) : null}
 
-                  {trio[1] && (
-                    <img
-                      src={trio[1].cover}
-                      alt={trio[1].title}
-                      className="bookFloat2 absolute bottom-8 left-1/2 w-[178px] md:w-[205px] -translate-x-1/2 rotate-[2deg] rounded-xl shadow-[0_30px_70px_rgba(0,0,0,0.65)]"
-                    />
-                  )}
+              {/* 3 livros na frente */}
+              {finalStack.map((b, i) => {
+                const rotate = i === 0 ? -10 : i === 1 ? 0 : 10;
+                const x = i === 0 ? -22 : i === 1 ? 0 : 22;
+                const z = i === 1 ? 30 : 10;
+                const zIndex = i === 1 ? 30 : i === 0 ? 20 : 10;
 
-                  {trio[2] && (
-                    <img
-                      src={trio[2].cover}
-                      alt={trio[2].title}
-                      className="bookFloat3 absolute bottom-11 left-1/2 w-[165px] md:w-[190px] translate-x-[115px] rotate-[12deg] rounded-xl shadow-[0_30px_70px_rgba(0,0,0,0.65)]"
-                    />
-                  )}
-                </div>
-
-                {/* corner accent */}
-                <div className="pointer-events-none absolute right-4 top-4 h-16 w-16 rounded-2xl border border-white/10 bg-white/5" />
-              </div>
-
-              {/* captions */}
-              <div className="mt-5 grid gap-2">
-                <div className="text-xs font-mono tracking-widest text-gold/80">
-                  BEST-SELLER LOOK & FEEL
-                </div>
-                <div className="text-sm text-white/65">
-                  {trio.map((b) => b.title).join(" • ")}
-                </div>
-              </div>
+                return (
+                  <motion.div
+                    key={`${b.title}-${b.cover}-${i}`}
+                    className={cn(
+                      "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
+                      "w-[210px] h-[310px] md:w-[220px] md:h-[324px]"
+                    )}
+                    style={{ transformStyle: "preserve-3d", zIndex }}
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <div
+                      className="relative h-full w-full rounded-2xl overflow-hidden border border-white/10"
+                      style={{
+                        transform: `translateX(${x}px) rotate(${rotate}deg) translateZ(${z}px)`,
+                        boxShadow:
+                          "0 30px 70px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.08)"
+                      }}
+                    >
+                      <Image
+                        src={bust(b.cover)}
+                        alt={b.title}
+                        fill
+                        className="object-cover"
+                        sizes="240px"
+                        priority={i === 1}
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.78),transparent_55%)]" />
+                      <div className="absolute bottom-3 left-3 right-3">
+                        <div className="text-[10px] font-mono tracking-widest text-gold-soft/90">
+                          {b.vol}
+                        </div>
+                        <div className="mt-1 text-sm font-semibold leading-tight">
+                          {b.title}
+                        </div>
+                        <div className="mt-1 text-[11px] text-white/65">
+                          {b.logline}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-
-      {/* keyframes */}
-      <style jsx>{`
-        .bookFloat1 {
-          animation: float1 5.2s ease-in-out infinite;
-        }
-        .bookFloat2 {
-          animation: float2 5.6s ease-in-out infinite;
-        }
-        .bookFloat3 {
-          animation: float3 5.0s ease-in-out infinite;
-        }
-
-        @keyframes float1 {
-          0% { transform: translateX(-140px) translateY(0px) rotate(-12deg); }
-          50% { transform: translateX(-140px) translateY(-10px) rotate(-10deg); }
-          100% { transform: translateX(-140px) translateY(0px) rotate(-12deg); }
-        }
-        @keyframes float2 {
-          0% { transform: translateX(-50%) translateY(0px) rotate(2deg); }
-          50% { transform: translateX(-50%) translateY(-12px) rotate(0deg); }
-          100% { transform: translateX(-50%) translateY(0px) rotate(2deg); }
-        }
-        @keyframes float3 {
-          0% { transform: translateX(115px) translateY(0px) rotate(12deg); }
-          50% { transform: translateX(115px) translateY(-9px) rotate(10deg); }
-          100% { transform: translateX(115px) translateY(0px) rotate(12deg); }
-        }
-      `}</style>
     </section>
   );
 }
-
-
