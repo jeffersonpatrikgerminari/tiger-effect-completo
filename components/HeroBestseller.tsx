@@ -17,23 +17,20 @@ type Book = {
 export default function HeroBestseller({ books }: { books: Book[] }) {
   const { t } = useI18n();
 
-  const boxFromList =
-    books?.find((b) => String(b.vol).toUpperCase() === "BOX")?.cover || "";
-
+  // 1) BOX (fundo)
   const boxCover =
-    boxFromList ||
     (t("trilogy.boxCover") as string) ||
     (t("home.heroCover") as string) ||
     "";
 
-  // ✅ sempre pega só os 3 volumes (sem BOX)
+  // 2) pega só os 3 volumes (frente)
   const stack = (books || [])
     .filter((b) => String(b.vol).toUpperCase() !== "BOX")
     .slice(0, 3);
 
   return (
     <section className="relative overflow-hidden">
-      {/* extra glow layers */}
+      {/* glows */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute -top-40 left-1/2 h-[680px] w-[680px] -translate-x-1/2 rounded-full bg-gold/12 blur-3xl" />
         <div className="absolute -bottom-52 right-[-120px] h-[620px] w-[620px] rounded-full bg-alert/10 blur-3xl" />
@@ -84,7 +81,9 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
               </Link>
             </div>
 
-            <div className="mt-6 text-xs text-white/50">{t("home.warning")}</div>
+            <div className="mt-6 text-xs text-white/50">
+              {t("home.warning")}
+            </div>
           </motion.div>
 
           {/* Cover stack */}
@@ -99,7 +98,7 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
               <div className="absolute inset-0 rounded-[28px] border border-white/10 bg-white/5 shadow-glow backdrop-blur" />
               <div className="absolute inset-0 rounded-[28px] [mask-image:radial-gradient(circle_at_60%_20%,black,transparent_70%)] bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,.20),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,.12),transparent_42%)]" />
 
-              {/* ✅ BOX atrás (dentro do quadrado) */}
+              {/* BOX atrás (dentro do quadrado) */}
               {boxCover ? (
                 <motion.div
                   className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none"
@@ -110,20 +109,20 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
                   <div className="absolute inset-8 md:inset-10 rounded-[22px] overflow-hidden">
                     <Image
                       src={boxCover}
-                      alt="Box set cover"
+                      alt="Box set"
                       fill
                       unoptimized
-                      className="object-cover opacity-[0.80] scale-[1.04]"
+                      className="object-cover opacity-[0.75] scale-[1.05]"
                       sizes="340px"
                       priority
                     />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,0,0,.10),rgba(0,0,0,.55))]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,0,0,.10),rgba(0,0,0,.60))]" />
                     <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.55),transparent_60%)]" />
                   </div>
                 </motion.div>
               ) : null}
 
-              {/* ✅ 3 livros em primeiro plano */}
+              {/* Livros na frente */}
               {stack.map((b, i) => {
                 const rotate = i === 0 ? -10 : i === 1 ? 0 : 10;
                 const x = i === 0 ? -22 : i === 1 ? 0 : 22;
@@ -132,7 +131,7 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
 
                 return (
                   <motion.div
-                    key={b.title}
+                    key={`${b.vol}-${b.title}`}
                     className={cn(
                       "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
                       "w-[210px] h-[310px] md:w-[220px] md:h-[324px]"
@@ -142,7 +141,7 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
                     transition={{
                       duration: 5 + i,
                       repeat: Infinity,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
                     }}
                   >
                     <div
@@ -150,7 +149,7 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
                       style={{
                         transform: `translateX(${x}px) rotate(${rotate}deg) translateZ(${z}px)`,
                         boxShadow:
-                          "0 30px 70px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.08)"
+                          "0 30px 70px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.08)",
                       }}
                     >
                       <Image
