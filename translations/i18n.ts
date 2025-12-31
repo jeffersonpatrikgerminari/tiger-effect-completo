@@ -35,7 +35,6 @@ export const dict = {
       ctaCommunity: "Entrar no Portal de Apoio",
       heroCover: "/books/pt/box.png",
       proofTitle: "Sobre o que é o Efeito Tigre",
-      proofLabels: ["Queda", "Arquitetura", "Recuperação"],
       proofPoints: [
         "A queda individual: o silêncio, a madrugada e a mente negociando com o abismo.",
         "A arquitetura do sistema: retenção, quase-vitórias e design predatório.",
@@ -51,9 +50,17 @@ export const dict = {
       boxText:
         "Não é sobre “perdedores”. É sobre a mentira moderna do atalho — e o preço do ciclo.",
       boxCover: "/books/pt/box.png",
-
-      // ✅ IMPORTANTE: Vol. 1–3 primeiro; BOX por último.
       books: [
+        {
+          vol: "BOX",
+          title: "Efeito Tigre",
+          titleEnHint: "Tiger Effect (Box Set)",
+          cover: "/books/pt/box.png",
+          logline: "A trilogia completa.",
+          synopsis:
+            "O box reúne os três volumes — a queda individual, a arquitetura do algoritmo e a recuperação como ato coletivo. Um mesmo padrão atravessa tudo: a interface não vende vitória; vende permanência. E, no centro, a pergunta incômoda: o que está sendo treinado em você, repetição após repetição?",
+          buyUrl: "#"
+        },
         {
           vol: "Vol. 1",
           title: "Nas Garras do Tigre",
@@ -82,16 +89,6 @@ export const dict = {
           logline: "A recuperação e grupos de apoio.",
           synopsis:
             "O jogo sai do centro e entram as pessoas. Um grupo de apoio, histórias diferentes e um desfecho estruturalmente idêntico: ninguém começa pelo dinheiro. Começa por dor, cansaço, luto e solidão. A saída não é sorte — é reconhecimento, fala e presença.",
-          buyUrl: "#"
-        },
-        {
-          vol: "BOX",
-          title: "Efeito Tigre",
-          titleEnHint: "Tiger Effect (Box Set)",
-          cover: "/books/pt/box.png",
-          logline: "A trilogia completa.",
-          synopsis:
-            "O box reúne os três volumes — a queda individual, a arquitetura do algoritmo e a recuperação como ato coletivo. Um mesmo padrão atravessa tudo: a interface não vende vitória; vende permanência. E, no centro, a pergunta incômoda: o que está sendo treinado em você, repetição após repetição?",
           buyUrl: "#"
         }
       ]
@@ -168,6 +165,7 @@ export const dict = {
         "Sem julgamentos: foco em interrupção do ciclo.",
         "Compartilhe estratégias que funcionaram pra você."
       ],
+
       loginTitle: "Entrar ou criar conta",
       email: "E-mail",
       password: "Senha",
@@ -266,7 +264,6 @@ export const dict = {
       ctaCommunity: "Enter the Support Portal",
       heroCover: "/books/en/box.png",
       proofTitle: "What Tiger Effect is about",
-      proofLabels: ["Fall", "Architecture", "Recovery"],
       proofPoints: [
         "The individual fall: silence, late nights, and a mind bargaining with the abyss.",
         "The system’s architecture: retention, near-wins, and predatory design.",
@@ -282,9 +279,17 @@ export const dict = {
       boxText:
         "Not about “losers”. About the modern lie of shortcuts — and the cost of the cycle.",
       boxCover: "/books/en/box.png",
-
-      // ✅ IMPORTANT: Vol. 1–3 first; BOX last.
       books: [
+        {
+          vol: "BOX",
+          title: "Tiger Effect",
+          titleEnHint: "Tiger Effect (Box Set)",
+          cover: "/books/en/box.png",
+          logline: "The complete trilogy.",
+          synopsis:
+            "The box set brings all three volumes together — the individual fall, the algorithm’s architecture, and recovery as a collective act. One pattern runs through everything: the interface doesn’t sell victory; it sells staying. And at the center is the uncomfortable question: what is being trained in you, repetition after repetition?",
+          buyUrl: "#"
+        },
         {
           vol: "Vol. 1",
           title: "In the Tiger’s Grip",
@@ -313,16 +318,6 @@ export const dict = {
           logline: "Recovery and support groups.",
           synopsis:
             "The game steps aside and people take the stage. A support group, different lives, the same structural ending: nobody starts with money. They start with pain, grief, exhaustion, and loneliness. The way out isn’t luck — it’s recognition, voice, and presence.",
-          buyUrl: "#"
-        },
-        {
-          vol: "BOX",
-          title: "Tiger Effect",
-          titleEnHint: "Tiger Effect (Box Set)",
-          cover: "/books/en/box.png",
-          logline: "The complete trilogy.",
-          synopsis:
-            "The box set brings all three volumes together — the individual fall, the algorithm’s architecture, and recovery as a collective act. One pattern runs through everything: the interface doesn’t sell victory; it sells staying. And at the center is the uncomfortable question: what is being trained in you, repetition after repetition?",
           buyUrl: "#"
         }
       ]
@@ -399,6 +394,7 @@ export const dict = {
         "No judgment: focus on breaking the cycle.",
         "Share strategies that worked for you."
       ],
+
       loginTitle: "Sign in or create an account",
       email: "Email",
       password: "Password",
