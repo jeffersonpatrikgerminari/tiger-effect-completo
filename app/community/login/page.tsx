@@ -33,7 +33,7 @@ export default function LoginPage() {
     setMsg(null);
     setBusy(true);
     try {
-      const { error } = await supabase.auth.signUp({ email, password });
+      const { error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}/community/login` } });
       if (error) throw error;
       setMsg(t("community.createdMsg"));
     } catch (e: any) {
