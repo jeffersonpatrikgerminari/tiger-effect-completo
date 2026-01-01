@@ -40,7 +40,15 @@ export const dict = {
         "A arquitetura do sistema: retenção, quase-vitórias e design predatório.",
         "A recuperação: grupos de apoio, presença e interrupção do ciclo."
       ],
-      warning:
+      pillarLabels: ["Queda", "Arquitetura", "Recuperação"],
+      supportCard: {
+        kicker: "COMUNIDADE",
+        title: "Portal de Apoio: presença, interrupção e conversa real.",
+        lead:
+          "O fórum é parte do projeto: um espaço para relatar gatilhos, pedir companhia e dividir estratégias que funcionaram.",
+        cta: "Entrar no Portal"
+      },
+            warning:
         "Conteúdo educativo e literário. Se você estiver em sofrimento, busque apoio de pessoas de confiança e serviços locais de saúde."
     },
     trilogy: {
@@ -281,7 +289,15 @@ export const dict = {
         "The system’s architecture: retention, near-wins, and predatory design.",
         "Recovery: support groups, presence, and breaking the cycle."
       ],
-      warning:
+      pillarLabels: ["Fall", "Architecture", "Recovery"],
+      supportCard: {
+        kicker: "COMMUNITY",
+        title: "Support Portal: presence, interruption, and real conversation.",
+        lead:
+          "The forum is part of the project: a place to share triggers, ask for company, and trade strategies that worked.",
+        cta: "Enter the Portal"
+      },
+            warning:
         "Educational and literary content. If you’re struggling, seek support from trusted people and local health services."
     },
     trilogy: {

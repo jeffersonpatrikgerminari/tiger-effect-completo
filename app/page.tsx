@@ -34,7 +34,7 @@ export default function HomePage() {
               </div>
               <div>
                 <div className="text-xs font-mono text-white/55">Vol. 1</div>
-                <div className="font-semibold">Queda</div>
+                <div className="font-semibold">{(t("home.pillarLabels") as string[])[0]}</div>
               </div>
             </div>
             <p className="mt-3 text-sm text-white/70">{(t("home.proofPoints") as string[])[0]}</p>
@@ -47,7 +47,7 @@ export default function HomePage() {
               </div>
               <div>
                 <div className="text-xs font-mono text-white/55">Vol. 2</div>
-                <div className="font-semibold">Arquitetura</div>
+                <div className="font-semibold">{(t("home.pillarLabels") as string[])[1]}</div>
               </div>
             </div>
             <p className="mt-3 text-sm text-white/70">{(t("home.proofPoints") as string[])[1]}</p>
@@ -60,7 +60,7 @@ export default function HomePage() {
               </div>
               <div>
                 <div className="text-xs font-mono text-white/55">Vol. 3</div>
-                <div className="font-semibold">Recuperação</div>
+                <div className="font-semibold">{(t("home.pillarLabels") as string[])[2]}</div>
               </div>
             </div>
             <p className="mt-3 text-sm text-white/70">{(t("home.proofPoints") as string[])[2]}</p>
@@ -81,19 +81,19 @@ export default function HomePage() {
         <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8 shadow-glow backdrop-blur">
           <div className="max-w-2xl">
             <div className="font-mono text-xs tracking-widest text-gold/80">
-              COMMUNITY
+              {t("home.supportCard.kicker")}
             </div>
             <div className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight">
-              Portal de Apoio: presença, interrupção e conversa real.
+              {t("home.supportCard.title")}
             </div>
             <p className="mt-3 text-white/70">
-              O fórum é parte do projeto: um espaço para relatar gatilhos, pedir companhia e dividir estratégias que funcionaram.
+              {t("home.supportCard.lead")}
             </p>
             <a
               href="/community"
               className="mt-5 inline-flex items-center gap-2 rounded-xl border border-gold/25 bg-gold/10 px-5 py-3 text-sm text-gold-soft hover:bg-gold/15 transition"
             >
-              Entrar no Portal
+              {t("home.supportCard.cta")}
             </a>
           </div>
         </div>
