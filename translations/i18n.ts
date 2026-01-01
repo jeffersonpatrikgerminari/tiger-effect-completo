@@ -143,6 +143,7 @@ export const dict = {
     },
     community: {
       title: "Portal de Apoio",
+      kicker: "COMUNIDADE",
       lead:
         "Comunidade, fórum e diário de interrupção do ciclo. Estrutura pronta para Supabase Auth e banco.",
       hub: {
@@ -383,6 +384,7 @@ export const dict = {
     },
     community: {
       title: "Support Portal",
+      kicker: "COMMUNITY",
       lead:
         "Community, forum, and a cycle-breaking journal. Ready for Supabase Auth + database.",
       hub: {

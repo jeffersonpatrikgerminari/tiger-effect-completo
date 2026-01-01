@@ -18,17 +18,13 @@ function getByPath(obj: any, path: string) {
 export default function LangProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
 
-  useEffect(() => {
+    useEffect(() => {
+    // Default: English. Only switch if user has explicitly saved a preference.
     try {
       const saved = localStorage.getItem("lang");
-      if (saved === "pt" || saved === "en") {
-        setLang(saved);
-        return;
-      }
-      const navLang = (navigator.language || "en").toLowerCase();
-      setLang(navLang.startsWith("pt") ? "pt" : "en");
+      if (saved === "pt" || saved === "en") setLang(saved);
     } catch {
-      setLang("en");
+      // If storage is blocked, keep English.
     }
   }, []);
 
