@@ -11,6 +11,7 @@ export default function LoginPage() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [nickname, setNickname] = useState("");
 
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
@@ -29,11 +30,22 @@ export default function LoginPage() {
     }
   }
 
+
+function validateNickname(n: string) {
+  const v = n.trim();
+  // 2–24 chars: letters/numbers/space/_/-
+  if (!v) throw new Error(t("community.nicknameRequired"));
+  if (v.length < 2 || v.length > 24) throw new Error(t("community.nicknameInvalid"));
+  if (!/^[\p{L}\p{N}_\- ]+$/u.test(v)) throw new Error(t("community.nicknameInvalid"));
+  return v;
+}
+
   async function signUp() {
     setMsg(null);
     setBusy(true);
     try {
-      const { error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}/community/login` } });
+      const safeNick = validateNickname(nickname);
+      const { error } = await supabase.auth.signUp({ email, password, options: { data: { display_name: safeNick }, emailRedirectTo: `${window.location.origin}/community/login` } });
       if (error) throw error;
       setMsg(t("community.createdMsg"));
     } catch (e: any) {
@@ -64,6 +76,16 @@ export default function LoginPage() {
           className="w-full rounded-xl border border-white/10 bg-noir px-4 py-3 text-sm outline-none focus:border-gold/40"
           placeholder="••••••••"
         />
+
+<label className="text-xs text-white/60">{t("community.nickname")}</label>
+<input
+  value={nickname}
+  onChange={(e) => setNickname(e.target.value)}
+  className="w-full rounded-xl border border-white/10 bg-noir px-4 py-3 text-sm outline-none focus:border-gold/40"
+  placeholder={t("community.nicknamePlaceholder")}
+/>
+<div className="text-xs text-white/45">{t("community.nicknameHint")}</div>
+
 
         {msg ? <div className="text-sm text-white/75">{msg}</div> : null}
 

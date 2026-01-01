@@ -69,7 +69,7 @@ export default function TopicDetailPage() {
       return;
     }
 
-    setTopic(topicData as Topic);
+    // Topic will be set after resolving nickname
 
     const { data: repliesData, error: re } = await supabase
       .from("forum_replies")
@@ -77,9 +77,45 @@ export default function TopicDetailPage() {
       .eq("topic_id", id)
       .order("created_at", { ascending: true });
 
-    if (re) setErr(re.message);
-    setReplies((repliesData as Reply[]) ?? []);
-    setLoading(false);
+if (re) setErr(re.message);
+
+// Resolve nicknames (profiles)
+const authorIds = Array.from(
+  new Set(
+    [
+      (topicData as any)?.author_id,
+      ...((repliesData as any[]) ?? []).map((r) => r?.author_id)
+    ].filter(Boolean)
+  )
+) as string[];
+
+let nameById: Record<string, string> = {};
+if (authorIds.length) {
+  const { data: profs } = await supabase
+    .from("profiles")
+    .select("user_id, display_name")
+    .in("user_id", authorIds);
+
+  (profs ?? []).forEach((p: any) => {
+    if (p?.user_id && p?.display_name) nameById[p.user_id] = p.display_name;
+  });
+}
+
+const topicWithName = {
+  ...(topicData as any),
+  author_name: (topicData as any)?.author_id
+    ? nameById[(topicData as any).author_id] ?? null
+    : null
+};
+
+const repliesWithNames = (((repliesData as any[]) ?? []) as any[]).map((r) => ({
+  ...r,
+  author_name: r?.author_id ? nameById[r.author_id] ?? null : null
+}));
+
+setTopic(topicWithName as Topic);
+setReplies(repliesWithNames as Reply[]);
+setLoading(false);
   }
 
   async function removeTopic() {
@@ -132,7 +168,7 @@ export default function TopicDetailPage() {
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2 text-xs text-white/60">
-                  <span className="font-mono">{topic.author_email ?? "anon"}</span>
+                  <span className="font-mono">{topic.author_name ?? t("community.anonymous")}</span>
                   {removed ? (
                     <span className="inline-flex items-center gap-1 rounded-full border border-alert/40 bg-alert/10 px-2 py-0.5 text-alert">
                       <ShieldAlert className="h-3.5 w-3.5" />

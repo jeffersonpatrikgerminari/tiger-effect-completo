@@ -29,9 +29,36 @@ export default function ForumPage() {
       .select("*")
       .order("created_at", { ascending: false });
 
-    if (error) setErr(error.message);
-    if (!error && data) setTopics(data as Topic[]);
-    setLoading(false);
+if (error) setErr(error.message);
+
+if (!error && data) {
+  const topicsRaw = data as any[];
+
+  const authorIds = Array.from(
+    new Set(topicsRaw.map((t) => t?.author_id).filter(Boolean))
+  ) as string[];
+
+  let nameById: Record<string, string> = {};
+  if (authorIds.length) {
+    const { data: profs } = await supabase
+      .from("profiles")
+      .select("user_id, display_name")
+      .in("user_id", authorIds);
+
+    (profs ?? []).forEach((p: any) => {
+      if (p?.user_id && p?.display_name) nameById[p.user_id] = p.display_name;
+    });
+  }
+
+  const withNames = topicsRaw.map((t) => ({
+    ...t,
+    author_name: t?.author_id ? nameById[t.author_id] ?? null : null
+  }));
+
+  setTopics(withNames as Topic[]);
+}
+
+setLoading(false);
   }
 
   useEffect(() => {

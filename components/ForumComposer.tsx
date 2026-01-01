@@ -23,6 +23,17 @@ export default function ForumComposer({ onCreated }: { onCreated: () => void }) 
       if (ue) throw ue;
       if (!u.user) throw new Error(t("community.loginRequired"));
 
+const { data: prof } = await supabase
+  .from("profiles")
+  .select("display_name")
+  .eq("user_id", u.user.id)
+  .maybeSingle();
+
+if (!prof?.display_name) {
+  router.push("/community/dashboard?setup=1");
+  throw new Error(t("community.needNickname"));
+}
+
       if (!title.trim()) throw new Error(t("common.required"));
       if (!body.trim()) throw new Error(t("common.required"));
 
@@ -31,7 +42,7 @@ export default function ForumComposer({ onCreated }: { onCreated: () => void }) 
         .insert({
           title: title.trim(),
           body: body.trim(),
-          author_email: u.user.email ?? null
+          author_id: u.user.id
         })
         .select("id")
         .single();

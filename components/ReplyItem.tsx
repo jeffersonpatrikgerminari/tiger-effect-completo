@@ -10,8 +10,8 @@ export type Reply = {
   topic_id: string;
   body: string;
   created_at: string;
-  author_email?: string | null;
   author_id?: string | null;
+  author_name?: string | null;
   is_deleted?: boolean | null;
 };
 
@@ -51,7 +51,7 @@ export default function ReplyItem({
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2 text-xs text-white/60">
             <MessageCircle className="h-4 w-4 text-gold-soft" />
-            <span className="font-mono">{reply.author_email ?? "anon"}</span>
+            <span className="font-mono">{reply.author_name ?? t("community.anonymous")}</span>
 
             {removed ? (
               <span className="inline-flex items-center gap-1 rounded-full border border-alert/40 bg-alert/10 px-2 py-0.5 text-alert">
