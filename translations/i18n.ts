@@ -154,6 +154,21 @@ export const dict = {
       kicker: "COMUNIDADE",
       lead:
         "Comunidade, fórum e diário de interrupção do ciclo. Estrutura pronta para Supabase Auth e banco.",
+      resources: {
+        kicker: "RECURSOS",
+        title: "Canais de apoio e ferramentas",
+        lead:
+          "Uma curadoria de recursos gratuitos e especializados (Brasil e exterior) e de barreiras digitais para reduzir recaídas em momentos de impulso.",
+        disclaimer:
+          "Informativo. Não substitui atendimento profissional. Se você estiver em crise, busque serviços locais de saúde e pessoas de confiança.",
+        tabChannels: "Canais de apoio",
+        tabTools: "Apps & dispositivos",
+        open: "Abrir site",
+        noLink: "Sem link direto",
+        phone: "Telefone",
+        whatsapp: "WhatsApp",
+        email: "E-mail"
+      },
       hub: {
         loginTitle: "Login/Cadastro",
         loginDesc: "Entre com e-mail e senha, ou crie uma conta (Supabase Auth).",
@@ -403,6 +418,21 @@ export const dict = {
       kicker: "COMMUNITY",
       lead:
         "Community, forum, and a cycle-breaking journal. Ready for Supabase Auth + database.",
+      resources: {
+        kicker: "RESOURCES",
+        title: "Support channels and tools",
+        lead:
+          "A curated list of free and specialized support resources (Brazil and worldwide) plus digital barriers to reduce relapse during urge moments.",
+        disclaimer:
+          "Informational only. Not a substitute for professional care. If you’re in crisis, seek local health services and trusted people.",
+        tabChannels: "Support channels",
+        tabTools: "Apps & devices",
+        open: "Open website",
+        noLink: "No direct link",
+        phone: "Phone",
+        whatsapp: "WhatsApp",
+        email: "Email"
+      },
       hub: {
         loginTitle: "Login/Sign up",
         loginDesc: "Sign in with email and password or create an account (Supabase Auth).",
