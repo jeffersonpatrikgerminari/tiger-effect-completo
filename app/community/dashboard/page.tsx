@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { useRouter, useSearchParams } from "next/navigation";
 import GlowCard from "@/components/GlowCard";
@@ -15,7 +15,7 @@ function validateNicknameOrThrow(t: (k: string) => any, value: string) {
   return v;
 }
 
-export default function DashboardPage() {
+function DashboardInner() {
   const { t } = useI18n();
   const router = useRouter();
   const params = useSearchParams();
@@ -189,5 +189,13 @@ export default function DashboardPage() {
         </ul>
       </GlowCard>
     </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={<div className="p-6 text-sm text-white/70">Carregando…</div>}>
+      <DashboardInner />
+    </Suspense>
   );
 }
