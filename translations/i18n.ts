@@ -21,9 +21,23 @@ export const dict = {
       buy: "Comprar",
       open: "Abrir",
       back: "Voltar",
+      readSample: "Ler amostra",
       loading: "Carregando…",
       required: "Obrigatório",
       optional: "Opcional"
+    },
+    buy: {
+      kicker: "AMAZON",
+      selectStore: "Escolha a loja",
+      selectFormat: "Escolha o formato",
+      storeBR: "Amazon Brasil",
+      storeUS: "Amazon EUA",
+      kindle: "E-book Kindle",
+      print: "Livro físico",
+      openInAmazon: "Abrir na Amazon",
+      comingSoon: "Em breve",
+      note:
+        "Links serão adicionados assim que os livros forem publicados na Amazon (e-book e físico)."
     },
     stickyCta: {
       label: "Ações rápidas",
@@ -73,6 +87,7 @@ export const dict = {
       // ✅ IMPORTANTE: Vol. 1–3 primeiro; BOX por último.
       books: [
         {
+          bookKey: "nasGarrasDoTigre",
           vol: "Vol. 1",
           title: "Nas Garras do Tigre",
           titleEnHint: "In the Tiger’s Grip",
@@ -83,6 +98,7 @@ export const dict = {
           buyUrl: "#"
         },
         {
+          bookKey: "aFomeDoTigre",
           vol: "Vol. 2",
           title: "A Fome do Tigre",
           titleEnHint: "The Tiger’s Hunger",
@@ -93,6 +109,7 @@ export const dict = {
           buyUrl: "#"
         },
         {
+          bookKey: "oTigreDeVidro",
           vol: "Vol. 3",
           title: "O Tigre de Vidro: Cemitério de Ilusões",
           titleEnHint: "The Glass Tiger: Cemetery of Illusions",
@@ -103,6 +120,7 @@ export const dict = {
           buyUrl: "#"
         },
         {
+          bookKey: "efeitoTigre",
           vol: "BOX",
           title: "Efeito Tigre",
           titleEnHint: "Tiger Effect (Box Set)",
@@ -426,9 +444,23 @@ export const dict = {
       buy: "Buy",
       open: "Open",
       back: "Back",
+      readSample: "Read sample",
       loading: "Loading…",
       required: "Required",
       optional: "Optional"
+    },
+    buy: {
+      kicker: "AMAZON",
+      selectStore: "Choose a store",
+      selectFormat: "Choose a format",
+      storeBR: "Amazon Brazil",
+      storeUS: "Amazon US",
+      kindle: "Kindle eBook",
+      print: "Print edition",
+      openInAmazon: "Open on Amazon",
+      comingSoon: "Coming soon",
+      note:
+        "Links will be added as soon as the books are published on Amazon (eBook and print)."
     },
     stickyCta: {
       label: "Quick actions",
@@ -478,6 +510,7 @@ export const dict = {
       // ✅ IMPORTANT: Vol. 1–3 first; BOX last.
       books: [
         {
+          bookKey: "nasGarrasDoTigre",
           vol: "Vol. 1",
           title: "In the Tiger’s Grip",
           titleEnHint: "In the Tiger’s Grip",
@@ -488,6 +521,7 @@ export const dict = {
           buyUrl: "#"
         },
         {
+          bookKey: "aFomeDoTigre",
           vol: "Vol. 2",
           title: "The Tiger’s Hunger",
           titleEnHint: "The Tiger’s Hunger",
@@ -498,6 +532,7 @@ export const dict = {
           buyUrl: "#"
         },
         {
+          bookKey: "oTigreDeVidro",
           vol: "Vol. 3",
           title: "The Glass Tiger: Cemetery of Illusions",
           titleEnHint: "The Glass Tiger: Cemetery of Illusions",
@@ -508,6 +543,7 @@ export const dict = {
           buyUrl: "#"
         },
         {
+          bookKey: "efeitoTigre",
           vol: "BOX",
           title: "Tiger Effect",
           titleEnHint: "Tiger Effect (Box Set)",

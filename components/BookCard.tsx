@@ -5,8 +5,11 @@ import { motion } from "framer-motion";
 import { ShoppingCart, BookOpen } from "lucide-react";
 import GlowCard from "@/components/GlowCard";
 import { useI18n } from "@/components/LangProvider";
+import { useBuyModal } from "@/components/BuyModalProvider";
+import type { BookKey } from "@/lib/buyLinks";
 
 type Book = {
+  bookKey?: BookKey;
   vol: string;
   title: string;
   titleEnHint?: string;
@@ -19,6 +22,7 @@ type Book = {
 
 export default function BookCard({ book }: { book: Book }) {
   const { t } = useI18n();
+  const { openBuy } = useBuyModal();
 
   return (
     <motion.article
@@ -64,13 +68,14 @@ export default function BookCard({ book }: { book: Book }) {
 
         {/* actions */}
         <div className="mt-5 flex flex-wrap gap-2">
-          <a
-            href={book.buyUrl || "#"}
+          <button
+            type="button"
+            onClick={() => openBuy({ bookKey: book.bookKey || "efeitoTigre" })}
             className="inline-flex items-center gap-2 rounded-xl border border-gold/25 bg-gold/10 px-4 py-2 text-sm text-gold-soft hover:bg-gold/15 transition"
           >
             <ShoppingCart className="h-4 w-4" />
             {t("common.buy")}
-          </a>
+          </button>
 
           <a
             href={book.href || "/trilogy"}

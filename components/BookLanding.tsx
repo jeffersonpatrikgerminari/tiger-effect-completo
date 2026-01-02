@@ -6,6 +6,7 @@ import { BookOpen, ShoppingCart, LifeBuoy, ChevronLeft } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import GlowCard from "@/components/GlowCard";
 import { useI18n } from "@/components/LangProvider";
+import { useBuyModal } from "@/components/BuyModalProvider";
 
 export type BookKey =
   | "efeitoTigre"
@@ -28,6 +29,7 @@ type BookPageData = {
 
 export default function BookLanding({ bookKey }: { bookKey: BookKey }) {
   const { t } = useI18n();
+  const { openBuy } = useBuyModal();
   const data = t(`bookPages.${bookKey}`) as BookPageData;
 
   return (
@@ -68,13 +70,13 @@ export default function BookLanding({ bookKey }: { bookKey: BookKey }) {
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
-              <a
-                href={data.buyUrl || "#"}
+              <button
+                onClick={() => openBuy({ bookKey })}
                 className="inline-flex items-center gap-2 rounded-xl border border-gold/25 bg-gold/10 px-4 py-2 text-sm text-gold-soft hover:bg-gold/15 transition"
               >
                 <ShoppingCart className="h-4 w-4" />
                 {t("common.buy")}
-              </a>
+              </button>
 
               <a
                 href="#sample"

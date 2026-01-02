@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BookOpen, ShoppingCart, LifeBuoy } from "lucide-react";
 import { useI18n } from "@/components/LangProvider";
+import { useBuyModal } from "@/components/BuyModalProvider";
+import type { BookKey } from "@/lib/buyLinks";
 
 function isHiddenPath(pathname: string) {
   // Hide on authenticated/community areas to keep the interface clean.
@@ -17,10 +19,19 @@ function isHiddenPath(pathname: string) {
 export default function StickyCta() {
   const pathname = usePathname() || "/";
   const { t } = useI18n();
+  const { openBuy } = useBuyModal();
 
   if (isHiddenPath(pathname)) return null;
 
-  const buyHref = "/trilogy";
+  const bookKey: BookKey =
+    pathname === "/trilogy/nas-garras-do-tigre"
+      ? "nasGarrasDoTigre"
+      : pathname === "/trilogy/a-fome-do-tigre"
+        ? "aFomeDoTigre"
+        : pathname === "/trilogy/o-tigre-de-vidro"
+          ? "oTigreDeVidro"
+          : "efeitoTigre";
+
   const sampleHref = "/trilogy/efeito-tigre#sample";
   const supportHref = "/community";
 
@@ -30,13 +41,13 @@ export default function StickyCta() {
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-[60] border-t border-white/10 bg-black/70 backdrop-blur">
         <div className="mx-auto max-w-6xl px-4 py-3">
           <div className="flex items-center gap-2">
-            <Link
-              href={buyHref}
+            <button
+              onClick={() => openBuy({ bookKey })}
               className="flex-1 inline-flex items-center justify-center gap-2 rounded-2xl bg-gold/20 border border-gold/30 px-4 py-3 text-sm font-semibold text-gold-soft hover:bg-gold/25 transition"
             >
               <ShoppingCart className="h-4 w-4" />
               {t("stickyCta.buy")}
-            </Link>
+            </button>
             <Link
               href={sampleHref}
               className="flex-1 inline-flex items-center justify-center gap-2 rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white/85 hover:bg-white/10 transition"
@@ -65,13 +76,13 @@ export default function StickyCta() {
             {t("stickyCta.label")}
           </div>
           <div className="mt-3 grid grid-cols-2 gap-2">
-            <Link
-              href={buyHref}
+            <button
+              onClick={() => openBuy({ bookKey })}
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gold/20 border border-gold/30 px-4 py-2.5 text-sm font-semibold text-gold-soft hover:bg-gold/25 transition"
             >
               <ShoppingCart className="h-4 w-4" />
               {t("stickyCta.buy")}
-            </Link>
+            </button>
             <Link
               href={sampleHref}
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/5 border border-white/10 px-4 py-2.5 text-sm text-white/85 hover:bg-white/10 transition"
