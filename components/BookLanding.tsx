@@ -34,7 +34,6 @@ export default function BookLanding({ bookKey }: { bookKey: BookKey }) {
   const data = t(`bookPages.${bookKey}`) as BookPageData;
   const sampleHref = sampleHrefForBook(bookKey);
 
-  const sampleHref = sampleHrefForBook(bookKey);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
