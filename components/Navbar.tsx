@@ -18,6 +18,7 @@ export default function Navbar() {
     () => [
       { href: "/", label: t("nav.home") },
       { href: "/trilogy", label: t("nav.trilogy") },
+      { href: "/samples", label: t("common.readSample") },
       { href: "/algorithm", label: t("nav.algorithm") },
       { href: "/community", label: t("nav.community") },
       { href: "/authors", label: t("nav.authors") }

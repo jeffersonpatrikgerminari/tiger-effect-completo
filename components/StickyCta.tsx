@@ -6,6 +6,7 @@ import { BookOpen, ShoppingCart, LifeBuoy } from "lucide-react";
 import { useI18n } from "@/components/LangProvider";
 import { useBuyModal } from "@/components/BuyModalProvider";
 import type { BookKey } from "@/lib/buyLinks";
+import { sampleHrefForBook } from "@/lib/bookRoutes";
 
 function isHiddenPath(pathname: string) {
   // Hide on authenticated/community areas to keep the interface clean.
@@ -32,7 +33,7 @@ export default function StickyCta() {
           ? "oTigreDeVidro"
           : "efeitoTigre";
 
-  const sampleHref = "/trilogy/efeito-tigre#sample";
+  const sampleHref = sampleHrefForBook(bookKey);
   const supportHref = "/community";
 
   return (

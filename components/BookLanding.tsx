@@ -7,6 +7,7 @@ import SectionHeader from "@/components/SectionHeader";
 import GlowCard from "@/components/GlowCard";
 import { useI18n } from "@/components/LangProvider";
 import { useBuyModal } from "@/components/BuyModalProvider";
+import { sampleHrefForBook } from "@/lib/bookRoutes";
 
 export type BookKey =
   | "efeitoTigre"
@@ -31,6 +32,9 @@ export default function BookLanding({ bookKey }: { bookKey: BookKey }) {
   const { t } = useI18n();
   const { openBuy } = useBuyModal();
   const data = t(`bookPages.${bookKey}`) as BookPageData;
+  const sampleHref = sampleHrefForBook(bookKey);
+
+  const sampleHref = sampleHrefForBook(bookKey);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
@@ -78,13 +82,13 @@ export default function BookLanding({ bookKey }: { bookKey: BookKey }) {
                 {t("common.buy")}
               </button>
 
-              <a
-                href="#sample"
+              <Link
+                href={sampleHref}
                 className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition"
               >
                 <BookOpen className="h-4 w-4" />
                 {t("common.readSample")}
-              </a>
+              </Link>
 
               <Link
                 href="/community"
@@ -140,6 +144,15 @@ export default function BookLanding({ bookKey }: { bookKey: BookKey }) {
               <blockquote className="mt-3 text-lg md:text-xl text-white/85 leading-relaxed">
                 “{data.excerpt}”
               </blockquote>
+              <div className="mt-4">
+                <Link
+                  href={sampleHref}
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition"
+                >
+                  <BookOpen className="h-4 w-4" />
+                  {t("bookPages.sampleTitle")}
+                </Link>
+              </div>
             </div>
           </div>
 

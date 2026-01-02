@@ -18,7 +18,7 @@ function getByPath(obj: any, path: string) {
 export default function LangProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
 
-    useEffect(() => {
+  useEffect(() => {
     // Default: English. Only switch if user has explicitly saved a preference.
     try {
       const saved = localStorage.getItem("lang");
@@ -31,6 +31,12 @@ export default function LangProvider({ children }: { children: React.ReactNode }
   useEffect(() => {
     try {
       localStorage.setItem("lang", lang);
+    } catch {}
+
+    // Also persist as a cookie so server-side metadata and bots can pick it up.
+    // (Safe no-op if cookies are blocked.)
+    try {
+      document.cookie = `lang=${lang}; path=/; max-age=${60 * 60 * 24 * 365}`;
     } catch {}
   }, [lang]);
 
