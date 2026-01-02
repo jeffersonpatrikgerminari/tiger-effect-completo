@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useI18n } from "@/components/LangProvider";
 import { cn } from "@/lib/utils";
+import BrandWordmark from "@/components/BrandWordmark";
 
 type Book = {
   vol: string;
@@ -36,6 +37,9 @@ export default function HeroBestseller({ books }: { books: Book[] }) {
             transition={{ duration: 0.55 }}
             className="max-w-xl"
           >
+            {/* Wordmark (brand signature) */}
+            <BrandWordmark className="mb-5" />
+
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-mono text-white/70">
               <span className="h-2 w-2 rounded-full bg-gold" />
               {t("home.heroTag")}
