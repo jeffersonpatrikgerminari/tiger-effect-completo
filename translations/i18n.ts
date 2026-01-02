@@ -18,7 +18,6 @@ export const dict = {
       pt: "PT-BR",
       en: "EN",
       learnMore: "Saiba mais",
-      readSample: "Ler amostra",
       buy: "Comprar",
       open: "Abrir",
       back: "Voltar",
@@ -70,8 +69,7 @@ export const dict = {
           logline: "A queda individual.",
           synopsis:
             "André, às 03:14, encara um retângulo luminoso no silêncio da casa. O que começou como curiosidade vira urgência: uma plataforma desenhada para converter frustração em repetição e esperança em combustível. Aqui, o tempo é medido em ciclos — e cada ciclo cobra mais.",
-          buyUrl: "#",
-          href: "/trilogy/nas-garras-do-tigre"
+          buyUrl: "#"
         },
         {
           vol: "Vol. 2",
@@ -81,8 +79,7 @@ export const dict = {
           logline: "A arquitetura do sistema/algoritmo.",
           synopsis:
             "Neste volume, a narrativa entra no coração do sistema: a engenharia do quase, o ponto de orvalho e a retenção como método. Não há vilões caricatos; há uma infraestrutura que aprende com cada clique e reorganiza o ambiente para que as escolhas pareçam livres.",
-          buyUrl: "#",
-          href: "/trilogy/a-fome-do-tigre"
+          buyUrl: "#"
         },
         {
           vol: "Vol. 3",
@@ -92,8 +89,7 @@ export const dict = {
           logline: "A recuperação e grupos de apoio.",
           synopsis:
             "O jogo sai do centro e entram as pessoas. Um grupo de apoio, histórias diferentes e um desfecho estruturalmente idêntico: ninguém começa pelo dinheiro. Começa por dor, cansaço, luto e solidão. A saída não é sorte — é reconhecimento, fala e presença.",
-          buyUrl: "#",
-          href: "/trilogy/o-tigre-de-vidro"
+          buyUrl: "#"
         },
         {
           vol: "BOX",
@@ -103,169 +99,75 @@ export const dict = {
           logline: "A trilogia completa.",
           synopsis:
             "O box reúne os três volumes — a queda individual, a arquitetura do algoritmo e a recuperação como ato coletivo. Um mesmo padrão atravessa tudo: a interface não vende vitória; vende permanência. E, no centro, a pergunta incômoda: o que está sendo treinado em você, repetição após repetição?",
-          buyUrl: "#",
-          href: "/trilogy/efeito-tigre"
+          buyUrl: "#"
         }
       ]
     },
-
-    bookPages: {
-      eyebrow: "TRILOGIA",
-      backToTrilogy: "Voltar para A Trilogia",
-      whatYoullFind: "O que você vai encontrar",
-      contentNotice: "Aviso de conteúdo",
-      contentNoticeLead:
-        "Sem sensacionalismo. Apenas o necessário para você decidir se este volume é para você agora.",
-      sampleTitle: "Amostra",
-      sampleLead: "Um microtrecho para sentir o tom, sem spoilers.",
-      microExcerpt: "Microtrecho",
-      presentationTitle: "Apresentação",
-
-      efeitoTigre: {
-        vol: "BOX / Manifesto",
-        title: "Efeito Tigre",
-        subtitle: "Uma nova forma de captura — silenciosa, portátil e socialmente aceita.",
-        cover: "/books/pt/box.png",
-        buyUrl: "#",
-        synopsis:
-          "O box reúne a trilogia e seu manifesto: a interface não vende vitória; vende permanência. A jornada vai da queda individual (Vol. 1), passa pela engenharia do desejo e da retenção (Vol. 2) e retorna ao humano — recuperação como ato coletivo (Vol. 3).",
-        bullets: [
-          "A tese central do box: o lucro real está na permanência, não na vitória.",
-          "O arco completo: queda individual → arquitetura do sistema → recuperação coletiva.",
-          "Mecanismos psicológicos e sociais do “só mais uma vez”, sem moralismo.",
-          "Linguagem noir/tech: íntima, direta e perturbadoramente reconhecível.",
-          "Chamadas práticas: amostra + Portal de Apoio com canais e barreiras digitais.",
-        ],
-        excerpt: "Em qualquer país, em qualquer idioma, a promessa é a mesma: um atalho. Um toque. Uma chance. Um alívio. Só mais uma vez.",
-        triggers: [
-          "Dependência em apostas/jogos e compulsão",
-          "Pressão financeira e dívidas",
-          "Ansiedade, insônia e isolamento",
-          "Conflitos familiares e vergonha",
-          "Linguagem intensa (sem sensacionalismo)",
-        ],
-        presentation: [
-          "Efeito Tigre é uma trilogia sobre uma nova forma de captura — silenciosa, portátil e socialmente aceita.",
-          "Em qualquer país, em qualquer idioma, a promessa é a mesma: um atalho. Um toque. Uma chance. Um alívio. Só mais uma vez.",
-          "Mas o que parece entretenimento é, muitas vezes, um sistema: plataformas desenhadas para transformar frustração em repetição, culpa em insistência e adrenalina em orientação emocional. O tempo deixa de ser medido em horas e passa a ser medido em ciclos — e cada ciclo cobra mais do que o anterior.",
-          "Nas garras do Tigre",
-          "No primeiro volume, Nas garras do Tigre, você entra no lugar onde ninguém vê: a madrugada, o silêncio da casa, o corpo que não obedece e a mente que negocia com o próprio abismo. No segundo, A fome do Tigre, a narrativa amplia o foco e revela a engrenagem por trás do desejo: quando o jogo deixa de ser “um jogo” e vira método — uma arquitetura que aprende, ajusta e escala.",
-          "E no desfecho, O Tigre de Vidro: Cemitério de Ilusões, o espetáculo cai e restam as pessoas. Um grupo de apoio, relatos diferentes, um mesmo padrão: ninguém começa pelo dinheiro. Começa por dor, cansaço, luto, solidão, excesso de controle ou falta dele — e o sistema apenas ocupa o espaço disponível.",
-          "Efeito Tigre não é uma trilogia sobre “perdedores”. É uma trilogia sobre a mentira moderna do atalho — a ideia de que fugir da dor custa menos do que enfrentá-la. Não custa. A fuga cobra juros altos.",
-          "Ao final do box, uma certeza permanece: não existe vitória possível nesse jogo — existe apenas a chance de interromper o ciclo antes que ele leve tudo.",
-        ],
-      },
-
-      nasGarrasDoTigre: {
-        vol: "Vol. 1",
-        title: "Nas Garras do Tigre",
-        subtitle: "A queda individual.",
-        cover: "/books/pt/vol1.png",
-        buyUrl: "#",
-        synopsis:
-          "Às 03:14, André encara um retângulo de luz no silêncio da casa. O que começou como curiosidade vira urgência: ciclos que convertem frustração em repetição e esperança em combustível — até o controle se revelar ilusão.",
-        bullets: [
-          "A madrugada, o silêncio e a escalada: de curiosidade a urgência.",
-          "Mecanismos psicológicos do ciclo: frustração → repetição → culpa → insistência.",
-          "Erosão de vínculos, decisões distorcidas e isolamento progressivo.",
-          "A captura como processo (não como “desvio moral”).",
-          "As primeiras fissuras: interrupções pequenas, mas possíveis.",
-        ],
-        excerpt: "O universo de André havia sido reduzido a um retângulo luminoso de seis polegadas.",
-        triggers: [
-          "Dependência em apostas/jogos e compulsão",
-          "Pressão financeira e dívidas",
-          "Ansiedade, insônia e isolamento",
-          "Conflitos familiares",
-          "Linguagem intensa (sem sensacionalismo)",
-        ],
-        presentation: [
-          "Em diferentes partes do mundo, milhões de pessoas estão perdendo dinheiro, tempo, vínculos e identidade sem que ninguém perceba. Não em cassinos luxuosos nem em ambientes clandestinos, mas em espaços íntimos e silenciosos — quartos, banheiros, carros — diante de uma tela que cabe na palma da mão.",
-          "Nas garras do Tigre nasce desse silêncio global.",
-          "Às três e quatorze da manhã, André está sentado no banheiro de casa, com o celular na mão e o corpo encostado no azulejo frio. O cenário é comum. A experiência também. O que começou como curiosidade virou hábito. O que parecia controle virou urgência. O que prometia solução se transformou em aprisionamento.",
-          "Este livro não é apenas sobre apostas. É sobre como sistemas digitais podem sequestrar a esperança humana.",
-          "A narrativa revela os mecanismos psicológicos por trás de plataformas desenhadas para nunca perder: algoritmos que convertem frustração em repetição, culpa em insistência e adrenalina em orientação emocional. Aqui, o tempo não é medido em horas, mas em ciclos. E cada ciclo cobra um preço maior do que o anterior.",
-          "Com uma escrita visceral e profundamente humana, Nas garras do Tigre conduz o leitor para dentro da mente de alguém que acredita estar jogando, quando na verdade já foi capturado. O vício não aparece como exceção ou desvio moral, mas como um processo silencioso que atravessa culturas, classes sociais e fronteiras, corroendo relações, distorcendo decisões e isolando quem mais precisa de apoio.",
-          "Embora ambientada no Brasil, esta é uma história que poderia acontecer em qualquer lugar. Porque o mecanismo é global. A promessa é universal. E a queda, também.",
-          "Nas garras do Tigre é uma leitura intensa, perturbadora e necessária. Não para chocar, mas para revelar.",
-          "Depois da última página, torna-se impossível olhar para o dinheiro fácil, para os jogos digitais — e para a própria ideia de controle — da mesma forma.",
-          "Boa Leitura!",
-        ],
-      },
-
-      aFomeDoTigre: {
-        vol: "Vol. 2",
-        title: "A Fome do Tigre",
-        subtitle: "A arquitetura do sistema/algoritmo.",
-        cover: "/books/pt/vol2.png",
-        buyUrl: "#",
-        synopsis:
-          "O foco se amplia: não apenas o jogador, mas o sistema que observa, mede, ajusta e aprende. A narrativa entra na engenharia do “quase”, na retenção como método e no ponto onde o desejo deixa de ser humano e passa a ser explorável.",
-        bullets: [
-          "A engrenagem por trás do desejo: medir, ajustar, aprender, escalar.",
-          "Engenharia do “quase” e reforço intermitente como método de retenção.",
-          "Baixa fricção para continuar; alta fricção para parar.",
-          "A ilusão de escolha: ambiente reorganizado para parecer liberdade.",
-          "Leitura densa e psicológica — para nomear a arquitetura, não para chocar.",
-        ],
-        excerpt: "O silêncio na cobertura de Ricardo não era um acidente arquitetônico.",
-        triggers: [
-          "Dependência em apostas/jogos e compulsão",
-          "Pressão financeira e consequências",
-          "Ansiedade e ruminação",
-          "Linguagem intensa (sem sensacionalismo)",
-        ],
-        presentation: [
-          "Toda engrenagem começa com uma necessidade simples: querer mais. Mais dinheiro. Mais controle. Mais tempo para corrigir o que já foi perdido.",
-          "A Fome do Tigre investiga esse ponto exato onde o desejo deixa de ser humano e passa a ser explorável.",
-          "Enquanto milhões de pessoas giram em busca de uma promessa que nunca se cumpre, alguém observa. Mede. Ajusta. Aprende.",
-          "O jogo já não é apenas uma plataforma de apostas — é uma arquitetura invisível que transforma frustração em insistência e esperança em combustível.",
-          "Neste segundo volume da trilogia, o leitor é conduzido para além da experiência do jogador e entra no coração do sistema.",
-          "Aqui, a narrativa revela como a lógica do “quase” é construída, refinada e escalada até se tornar um método. Não há vilões caricatos nem heróis óbvios. Há engenheiros, advogados, intermediários e investidores que compreendem algo essencial: o verdadeiro lucro não está na vitória, mas na permanência.",
-          "Com uma escrita densa, precisa e psicológica, A Fome do Tigre expõe a engrenagem que sustenta o vício moderno — um sistema que não precisa mentir explicitamente, apenas reorganizar o ambiente para que as escolhas pareçam livres.",
-          "O leitor acompanha a transformação silenciosa de uma ideia em infraestrutura, de um experimento em mercado, de um jogo em dependência estrutural.",
-          "Embora ambientada no Brasil e em centros financeiros globais, esta é uma história que ultrapassa fronteiras. Porque a sede que move o Tigre não é cultural, nem local. É universal. E quanto mais é alimentada, menos pode ser saciada.",
-          "A Fome do Tigre não é apenas uma continuação. É o momento em que o leitor entende que a armadilha não está no clique — mas no sistema que aprende com cada um deles.",
-          "Depois desta leitura, a pergunta deixa de ser “por que as pessoas jogam?” e passa a ser: quem se beneficia quando elas nunca param?",
-        ],
-      },
-
-      oTigreDeVidro: {
-        vol: "Vol. 3",
-        title: "O Tigre de Vidro: Cemitério de Ilusões",
-        subtitle: "A recuperação e grupos de apoio.",
-        cover: "/books/pt/vol3.png",
-        buyUrl: "#",
-        synopsis:
-          "Depois da queda, vem a pergunta: e agora? O jogo sai do centro e entram as pessoas — um grupo de apoio, histórias diferentes, um mesmo padrão. A recuperação aqui é feita de reconhecimento, fala e presença: interrupções pequenas, repetidas, coletivas.",
-        bullets: [
-          "Um grupo de apoio como mapa humano: gatilhos, padrões e reparo.",
-          "Recuperação sem moralismo: responsabilidade com presença.",
-          "A ilusão do “dinheiro fácil” vista pelo que é: atraso da dor.",
-          "Reconstrução do cotidiano: limites, rotina e comunidade.",
-          "Ponte direta para o Portal de Apoio (canais + barreiras digitais).",
-        ],
-        excerpt: "Ricardo chegou cedo demais. Percebeu isso ao olhar o relógio do carro.",
-        triggers: [
-          "Dependência em apostas/jogos e compulsão",
-          "Estresse financeiro e consequências",
-          "Ansiedade e sofrimento emocional",
-          "Conflitos familiares",
-          "Linguagem intensa (sem sensacionalismo)",
-        ],
-        presentation: [
-          "Depois da promessa, vem a queda. Depois da queda, vem a pergunta: e agora?",
-          "O Tigre de Vidro: Cemitério de Ilusões é o livro da trilogia em que o jogo deixa de ser protagonista e dá lugar às pessoas. Homens e mulheres que chegaram ao limite não por fraqueza moral, mas por acreditarem em uma saída que nunca existiu.",
-          "Neste volume, o leitor acompanha um grupo de apoio formado por pessoas viciadas em jogos de aposta digitais. Cada encontro revela uma história diferente: como conheceram o jogo, o que faziam da vida, onde acreditaram estar no controle — e em que momento perceberam que estavam apenas tentando fugir da própria dor.",
-          "Este não é um livro sobre espetacularização da ruína.",
-          "É um livro sobre consciência.",
-          "Ao ouvir esses relatos, o leitor compreende que o jogo não destrói apenas finanças, mas distorce a percepção do tempo, da esperança e das relações humanas. A promessa de dinheiro fácil se revela, em todas as histórias, como aquilo que realmente é: um atraso da dor que retorna multiplicada.",
-          "Com uma narrativa psicológica, humana e responsável, O Tigre de Vidro mostra que o fundo do poço não é um lugar único — é um processo silencioso. E que sair dele não depende de sorte, mas de reconhecimento, fala e apoio coletivo.",
-          "Embora ambientada no Brasil, esta é uma história universal. Porque os mecanismos do vício digital atravessam fronteiras, culturas e classes sociais. E porque a ilusão de controle é uma armadilha global.",
-          "Este livro cumpre um papel claro dentro da trilogia: ensinar, sem moralizar, que a fuga não compensa. Que o jogo não vale a pena. E que enfrentar a dor, por mais difícil que seja, custa menos do que desaparecer tentando evitá-la.",
-          "O Tigre de Vidro é o livro em que o leitor entende, definitivamente, que não existe vitória possível nesse jogo — apenas a chance de interromper o ciclo antes que ele leve tudo.",
-          "Boa Leitura!",
-        ],
+    algorithm: {
+      title: "Por Dentro do Algoritmo",
+      lead:
+        "Duas ideias para enxergar o que a interface esconde: a Engenharia do Quase e o Ponto de Orvalho.",
+      blocks: [
+        {
+          title: "Engenharia do Quase",
+          subtitle: "Quando a vitória não é o objetivo — a permanência é.",
+          body:
+            "É o design que fabrica “quase-vitórias” e micro-recompensas para manter o cérebro em busca do próximo giro. O sistema ajusta estímulos (ritmo, cor, som, timing) para transformar frustração em insistência — sem precisar mentir explicitamente."
+        },
+        {
+          title: "Ponto de Orvalho",
+          subtitle: "A hora vulnerável em que a mente baixa a guarda.",
+          body:
+            "É o momento em que fadiga, silêncio e isolamento criam uma janela de decisão frágil. A plataforma aprende padrões: quando você tende a ceder, qual mensagem “funciona”, que tipo de gatilho te devolve ao ciclo."
+        }
+      ],
+      section2Title: "Sinais de retenção predatória",
+      bullets: [
+        "Reforço intermitente (o imprevisível vicia).",
+        "Quase-vitórias (o cérebro interpreta como ‘faltou pouco’).",
+        "Ausência de fricção para continuar; fricção para parar.",
+        "Notificações no timing da vulnerabilidade.",
+        "Normalização social: “é só distração”, “ajuda a aguentar”."
+      ]
+    },
+    authors: {
+      title: "Sobre os Autores",
+      lead:
+        "Escrita a quatro mãos para traduzir o que é íntimo, técnico e social: o vício como arquitetura.",
+      people: [
+        {
+          name: "Jefferson Patrik Germinari",
+          role: "Autor",
+          bio:
+            "Escrita psicológica e investigativa sobre comportamento, dor e repetição — onde a promessa de controle vira aprisionamento."
+        },
+        {
+          name: "Marcos Ewerton Germinari",
+          role: "Autor",
+          bio:
+            "Foco narrativo na engrenagem por trás do desejo: sistemas, incentivos e a estética invisível que sustenta a permanência."
+        }
+      ]
+    },
+    community: {
+      title: "Portal de Apoio",
+      kicker: "COMUNIDADE",
+      lead:
+        "Comunidade, fórum e diário de interrupção do ciclo. Estrutura pronta para Supabase Auth e banco.",
+      resources: {
+        kicker: "RECURSOS",
+        title: "Canais de apoio e ferramentas",
+        lead:
+          "Uma curadoria de recursos gratuitos e especializados (Brasil e exterior) e de barreiras digitais para reduzir recaídas em momentos de impulso.",
+        disclaimer:
+          "Informativo. Não substitui atendimento profissional. Se você estiver em crise, busque serviços locais de saúde e pessoas de confiança.",
+        tabChannels: "Canais de apoio",
+        tabTools: "Apps & dispositivos",
+        open: "Abrir site",
+        noLink: "Sem link direto",
+        phone: "Telefone",
+        whatsapp: "WhatsApp",
+        email: "E-mail"
       },
       hub: {
         loginTitle: "Login/Cadastro",
@@ -361,7 +263,138 @@ export const dict = {
         "Efeito Tigre é uma obra literária e um projeto comunitário. Se você estiver em risco ou em sofrimento, procure apoio profissional e pessoas de confiança.",
       rights: "© 2026 Efeito Tigre. Todos os direitos reservados."
     }
-  },
+  
+
+    bookPages: {
+      eyebrow: "TRILOGIA",
+      backToTrilogy: "Voltar para A Trilogia",
+      whatYoullFind: "O que você vai encontrar",
+      microExcerpt: "Microtrecho",
+      presentationTitle: "Apresentação",
+      contentNotice: "Aviso de conteúdo",
+      contentNoticeLead:
+        "O tema central é o Transtorno do Jogo (apostas online), com foco em compreensão, prevenção e recuperação — sem glamourização.",
+      sampleTitle: "Ler amostra",
+      sampleLead:
+        "Um trecho curto para você sentir o ritmo e o tom (sem spoilers relevantes).",
+
+      efeitoTigre: {
+        vol: "BOX / Manifesto",
+        title: "Efeito Tigre",
+        subtitle: "Apresentação da trilogia e do conceito",
+        cover: "/books/pt/box.png",
+        synopsis:
+          "Uma trilogia sobre vício em apostas digitais e algoritmos predatórios. Não é sobre azar ou falta de força — é sobre um sistema feito para te manter jogando.",
+        bullets: [
+          "O que é o ‘Efeito Tigre’ e por que ele captura",
+          "Por que a permanência vale mais que a vitória",
+          "Como a engenharia do quase cria retorno compulsivo",
+          "O arco completo: promessa, queda e recuperação"
+        ],
+        excerpt:
+          "O lucro real não está na vitória — está na permanência.",
+        presentation: [
+          "‘Efeito Tigre’ apresenta a trilogia como um mapa narrativo do Transtorno do Jogo na era das apostas digitais: primeiro a promessa, depois a captura, e por fim a tentativa concreta de sair do ciclo.",
+          "A história não trata pessoas como fracas. Trata a lógica estrutural do produto: reforços intermitentes, quase-vitórias, personalização e reconfiguração do ambiente para que a escolha pareça sempre ‘livre’.",
+          "Cada volume aprofunda uma camada: o golpe do dinheiro fácil, a arquitetura do algoritmo e, no desfecho, a reconstrução por meio de barreiras, linguagem e apoio coletivo.",
+          "O objetivo é simples e difícil: reconhecer o mecanismo a tempo de interromper."
+        ],
+        triggers: [
+          "Apostas/jogos de azar e compulsão",
+          "Perdas financeiras e pressão emocional",
+          "Manipulação digital e reforço intermitente"
+        ],
+        buyUrl: "#"
+      },
+
+      nasGarrasDoTigre: {
+        vol: "Vol. 1",
+        title: "Nas Garras do Tigre",
+        subtitle: "O golpe do dinheiro fácil",
+        cover: "/books/pt/vol1.png",
+        synopsis:
+          "O começo do ciclo: quando a promessa de ‘resolver a vida’ encontra cansaço, silêncio e um clique. A queda não acontece de uma vez — acontece por repetição.",
+        bullets: [
+          "O primeiro contato com a promessa e suas ‘provas’",
+          "O efeito do quase e a sensação de controle",
+          "Gatilhos emocionais: cansaço, luto, solidão, vergonha",
+          "O início da perda de espontaneidade e de tempo",
+          "Como a narrativa do lucro vira desculpa"
+        ],
+        excerpt:
+          "Ninguém começa pelo dinheiro. O dinheiro aparece depois — como justificativa.",
+        presentation: [
+          "O Volume 1 abre a trilogia pela porta mais comum: a promessa. Não a promessa abstrata, mas aquela que chega no momento certo — quando o corpo está cansado e a mente quer um atalho.",
+          "Aos poucos, o jogo deixa de ser evento e vira rotina. A pessoa não percebe ‘quando entrou’, porque entrou por microdecisões: mais uma tentativa, mais um dia, mais um respiro.",
+          "O livro acompanha a transformação: de curiosidade em hábito; de hábito em compensação; de compensação em perda de controle."
+        ],
+        triggers: [
+          "Apostas/jogos de azar e compulsão",
+          "Ansiedade, estresse e solidão",
+          "Dívidas e sensação de urgência"
+        ],
+        buyUrl: "#"
+      },
+
+      aFomeDoTigre: {
+        vol: "Vol. 2",
+        title: "A Fome do Tigre",
+        subtitle: "A arquitetura do abismo",
+        cover: "/books/pt/vol2.png",
+        synopsis:
+          "Aqui o foco muda: menos ‘sorte’, mais sistema. O que parece decisão individual revela um mecanismo que aprende, mede e empurra.",
+        bullets: [
+          "Como o produto molda comportamento por repetição",
+          "Engenharia do quase e reforço intermitente",
+          "Personalização: quando o sistema ‘lê’ você",
+          "A ilusão de ganho e o custo real do ciclo",
+          "Por que a pergunta deixa de ser ‘por que cliquei?’"
+        ],
+        excerpt:
+          "O problema não está no clique — está no sistema que aprende com cada um deles.",
+        presentation: [
+          "O Volume 2 entra na ‘arquitetura’: como a experiência é desenhada para manter você perto do botão, mesmo quando você sabe que vai perder.",
+          "A narrativa mostra a fome como metáfora: não é só desejo de dinheiro, é desejo de alívio, de anestesia, de sentido rápido — e o sistema oferece exatamente isso, em doses calculadas.",
+          "O leitor percebe que o ciclo não depende da vitória: depende da esperança renovada pela quase-vitória."
+        ],
+        triggers: [
+          "Apostas/jogos de azar e compulsão",
+          "Manipulação algorítmica e urgência",
+          "Perdas financeiras e conflitos familiares"
+        ],
+        buyUrl: "#"
+      },
+
+      oTigreDeVidro: {
+        vol: "Vol. 3",
+        title: "O Tigre de Vidro: Cemitério de Ilusões",
+        subtitle: "A recuperação e o apoio",
+        cover: "/books/pt/vol3.png",
+        synopsis:
+          "Depois da queda, vem a pergunta real: como viver sem a promessa? A saída não é sorte — é reconhecimento, fala e presença.",
+        bullets: [
+          "Grupos de apoio e a força do coletivo",
+          "Interrupções: pequenas, repetidas, imperfeitas",
+          "Barreiras digitais e proteção contra impulsos",
+          "Reconstrução de rotina, corpo e linguagem",
+          "O pós-jogo: culpa, reparação e recomeço"
+        ],
+        excerpt:
+          "O grupo não existe para salvar. Existe para interromper trajetórias.",
+        presentation: [
+          "No desfecho, a trilogia troca o centro: sai o ‘jogo’ e entram as pessoas — e o trabalho silencioso de voltar a existir no mundo sem o vício.",
+          "O livro mostra o papel do grupo: não como milagre, mas como mapa humano, onde cada história vira espelho e cada encontro vira freio.",
+          "A recuperação aparece como prática: barreiras, rotina, fala e escolhas mínimas repetidas até virarem estrutura."
+        ],
+        triggers: [
+          "Apostas/jogos de azar e recaída",
+          "Culpa, vergonha e pressão social",
+          "Situações de crise financeira"
+        ],
+        buyUrl: "#"
+      }
+    },
+},
 
   en: {
     brand: {
@@ -380,7 +413,6 @@ export const dict = {
       pt: "PT-BR",
       en: "EN",
       learnMore: "Learn more",
-      readSample: "Read sample",
       buy: "Buy",
       open: "Open",
       back: "Back",
@@ -432,8 +464,7 @@ export const dict = {
           logline: "The individual fall.",
           synopsis:
             "At 03:14, André faces a glowing rectangle in the silence of home. What began as curiosity becomes urgency: a platform engineered to turn frustration into repetition and hope into fuel. Here, time is measured in cycles — and each cycle charges more.",
-          buyUrl: "#",
-          href: "/trilogy/nas-garras-do-tigre"
+          buyUrl: "#"
         },
         {
           vol: "Vol. 2",
@@ -443,8 +474,7 @@ export const dict = {
           logline: "The system/algorithm architecture.",
           synopsis:
             "This volume enters the system’s core: near-miss engineering, the dew-point window, and retention as method. No cartoon villains — just an infrastructure that learns from every click and rearranges the environment so choices feel free.",
-          buyUrl: "#",
-          href: "/trilogy/a-fome-do-tigre"
+          buyUrl: "#"
         },
         {
           vol: "Vol. 3",
@@ -454,8 +484,7 @@ export const dict = {
           logline: "Recovery and support groups.",
           synopsis:
             "The game steps aside and people take the stage. A support group, different lives, the same structural ending: nobody starts with money. They start with pain, grief, exhaustion, and loneliness. The way out isn’t luck — it’s recognition, voice, and presence.",
-          buyUrl: "#",
-          href: "/trilogy/o-tigre-de-vidro"
+          buyUrl: "#"
         },
         {
           vol: "BOX",
@@ -465,169 +494,75 @@ export const dict = {
           logline: "The complete trilogy.",
           synopsis:
             "The box set brings all three volumes together — the individual fall, the algorithm’s architecture, and recovery as a collective act. One pattern runs through everything: the interface doesn’t sell victory; it sells staying. And at the center is the uncomfortable question: what is being trained in you, repetition after repetition?",
-          buyUrl: "#",
-          href: "/trilogy/efeito-tigre"
+          buyUrl: "#"
         }
       ]
     },
-
-    bookPages: {
-      eyebrow: "TRILOGY",
-      backToTrilogy: "Back to The Trilogy",
-      whatYoullFind: "What you’ll find",
-      contentNotice: "Content notice",
-      contentNoticeLead:
-        "No sensationalism. Just enough context for you to decide whether this volume is right for you right now.",
-      sampleTitle: "Sample",
-      sampleLead: "A micro-excerpt to feel the tone — no spoilers.",
-      microExcerpt: "Micro-excerpt",
-      presentationTitle: "Presentation",
-
-      efeitoTigre: {
-        vol: "BOX / Manifesto",
-        title: "Tiger Effect",
-        subtitle: "A new form of capture — silent, pocket-sized, and socially accepted.",
-        cover: "/books/en/box.png",
-        buyUrl: "#",
-        synopsis:
-          "The box set gathers the trilogy and its manifesto: the interface doesn’t sell victory; it sells staying. The journey moves from an individual fall (Vol. 1), into the engineering of desire and retention (Vol. 2), and back to the human — recovery as a collective act (Vol. 3).",
-        bullets: [
-          "The box’s central thesis: the real profit is in staying, not in winning.",
-          "The full arc: individual fall → system architecture → collective recovery.",
-          "Psychological and social mechanics of “just one more time”, without moralising.",
-          "Dark noir / tech tone: intimate, sharp, disturbingly recognisable.",
-          "Practical calls: sample + Support Portal (channels + digital barriers).",
-        ],
-        excerpt: "In any country, in any language, the promise is the same: a shortcut. A tap. A chance. Relief. Just one more time.",
-        triggers: [
-          "Gambling/betting addiction and compulsive behaviour",
-          "Financial pressure and debt",
-          "Anxiety, insomnia, and isolation",
-          "Family conflict and shame",
-          "Intense language (no sensationalism)",
-        ],
-        presentation: [
-          "Tiger Effect is a trilogy about a new form of capture — silent, pocket-sized, and socially accepted.",
-          "In any country, in any language, the promise is the same: a shortcut. A tap. A chance. Relief. Just one more time.",
-          "But what looks like entertainment is often a system: platforms designed to turn frustration into repetition, guilt into persistence, and adrenaline into an emotional compass. Time stops being measured in hours and starts being measured in cycles — and each cycle charges more than the last.",
-          "In the Tiger’s Grip",
-          "In the first volume, In the Tiger’s Grip, you enter the place no one sees: the small hours, the house’s silence, the body that won’t obey, and a mind bargaining with the edge of itself. In the second, The Tiger’s Hunger, the narrative widens the lens and reveals the machinery behind desire: the moment a game stops being “a game” and becomes method — an architecture that learns, adjusts, and scales.",
-          "And in the closing volume, The Glass Tiger: Cemetery of Illusions, the spectacle collapses and what remains are people. A support group, different stories, the same pattern: no one starts for money. They start with pain, fatigue, grief, loneliness, too much control or too little — and the system simply occupies the available space.",
-          "Tiger Effect is not a trilogy about “losers”. It is a trilogy about the modern lie of the shortcut — the idea that escaping pain costs less than facing it. It doesn’t. Escape charges interest.",
-          "By the end of the box, one certainty remains: there is no possible victory in this game — only the chance to interrupt the cycle before it takes everything.",
-        ],
-      },
-
-      nasGarrasDoTigre: {
-        vol: "Vol. 1",
-        title: "In the Tiger’s Grip",
-        subtitle: "The individual fall.",
-        cover: "/books/en/vol1.png",
-        buyUrl: "#",
-        synopsis:
-          "At 3:14 a.m., André stares at a rectangle of light in the house’s silence. What began as curiosity becomes urgency: cycles that turn frustration into repetition and hope into fuel — until “control” reveals itself as illusion.",
-        bullets: [
-          "The small hours, the silence, the escalation: from curiosity to urgency.",
-          "Cycle mechanics: frustration → repetition → guilt → persistence.",
-          "Relationships erode; decisions distort; isolation grows.",
-          "Capture as process (not a moral ‘failure’).",
-          "First cracks: small interruptions — but possible.",
-        ],
-        excerpt: "André’s universe had shrunk to a luminous six-inch rectangle.",
-        triggers: [
-          "Gambling/betting addiction and compulsive behaviour",
-          "Financial pressure and debt",
-          "Anxiety, insomnia, and isolation",
-          "Family conflict",
-          "Intense language (no sensationalism)",
-        ],
-        presentation: [
-          "Across the world, millions of people are losing money, time, bonds, and identity without anyone noticing. Not in luxurious casinos or clandestine rooms, but in intimate, silent places — bedrooms, bathrooms, cars — in front of a screen that fits in the palm of a hand.",
-          "In the Tiger’s Grip is born from that global silence.",
-          "At 3:14 a.m., André is sitting in his bathroom, phone in hand, his body pressed against cold tile. The scene is ordinary. The experience, too. What began as curiosity became habit. What felt like control became urgency. What promised a solution became captivity.",
-          "This book is not only about betting. It is about how digital systems can hijack human hope.",
-          "The narrative exposes the psychological mechanisms behind platforms designed never to lose: algorithms that turn frustration into repetition, guilt into persistence, and adrenaline into an emotional compass. Here, time is not measured in hours, but in cycles — and each cycle charges a higher price than the last.",
-          "With visceral, deeply human writing, In the Tiger’s Grip takes the reader inside the mind of someone who thinks he is playing, when in fact he has already been captured. Addiction appears not as an exception or a moral failing, but as a silent process that crosses cultures, social classes, and borders, corroding relationships, distorting decisions, and isolating those who most need support.",
-          "Though set in Brazil, this is a story that could happen anywhere. Because the mechanism is global. The promise is universal. And so is the fall.",
-          "In the Tiger’s Grip is an intense, unsettling, necessary read — not to shock, but to reveal.",
-          "After the final page, it becomes impossible to look at easy money, at digital games — and at the very idea of control — in quite the same way.",
-          "Happy reading!",
-        ],
-      },
-
-      aFomeDoTigre: {
-        vol: "Vol. 2",
-        title: "The Tiger’s Hunger",
-        subtitle: "The system/algorithm architecture.",
-        cover: "/books/en/vol2.png",
-        buyUrl: "#",
-        synopsis:
-          "The lens widens: not only the player, but the system that watches, measures, adjusts, and learns. The narrative enters the engineering of the “almost”, retention as method, and the point where desire stops being human and becomes exploitable.",
-        bullets: [
-          "The machinery behind desire: watch, measure, adjust, learn, scale.",
-          "Intermittent reinforcement and the engineering of the “almost”.",
-          "Low friction to continue; high friction to stop.",
-          "The illusion of choice: an environment arranged to feel like freedom.",
-          "Dense, psychological writing — to name the architecture, not to shock.",
-        ],
-        excerpt: "The silence in Ricardo’s penthouse wasn’t an architectural accident.",
-        triggers: [
-          "Gambling/betting addiction and compulsive behaviour",
-          "Financial pressure and consequences",
-          "Anxiety and rumination",
-          "Intense language (no sensationalism)",
-        ],
-        presentation: [
-          "Every mechanism begins with a simple need: wanting more. More money. More control. More time to fix what has already been lost.",
-          "The Tiger’s Hunger investigates the exact point where desire stops being human and becomes exploitable.",
-          "While millions spin in search of a promise that never comes true, someone is watching. Measuring. Adjusting. Learning.",
-          "The game is no longer merely a betting platform — it is an invisible architecture that turns frustration into persistence and hope into fuel.",
-          "In this second volume of the trilogy, the reader is led beyond the player’s experience and into the heart of the system.",
-          "Here, the narrative reveals how the logic of the “almost” is built, refined, and scaled until it becomes method. There are no cartoon villains and no obvious heroes. There are engineers, lawyers, intermediaries, and investors who understand something essential: the real profit is not in winning, but in staying.",
-          "With dense, precise, psychological writing, The Tiger’s Hunger exposes the machinery that sustains modern addiction — a system that doesn’t need to lie explicitly; it only needs to reorganise the environment so that choices feel free.",
-          "The reader follows the silent transformation of an idea into infrastructure, of an experiment into a market, of a game into structural dependence.",
-          "Though set in Brazil and in global financial centres, this is a story that crosses borders. Because the thirst that drives the Tiger is neither cultural nor local. It is universal — and the more it is fed, the less it can be satisfied.",
-          "The Tiger’s Hunger is not merely a continuation. It is the moment the reader understands that the trap is not in the click — but in the system that learns from each one.",
-          "After this book, the question shifts from “why do people play?” to: who benefits when they never stop?",
-        ],
-      },
-
-      oTigreDeVidro: {
-        vol: "Vol. 3",
-        title: "The Glass Tiger: Cemetery of Illusions",
-        subtitle: "Recovery and support groups.",
-        cover: "/books/en/vol3.png",
-        buyUrl: "#",
-        synopsis:
-          "After the fall comes the question: what now? The game leaves the centre and people step in — a support group, different stories, the same pattern. Recovery here is made of recognition, voice, and presence: small interruptions, repeated, collective.",
-        bullets: [
-          "A support group as a human map: triggers, patterns, repair.",
-          "Recovery without moralising: responsibility with presence.",
-          "“Easy money” exposed for what it is: postponed pain.",
-          "Rebuilding the everyday: limits, routine, community.",
-          "A direct bridge to the Support Portal (channels + digital barriers).",
-        ],
-        excerpt: "Ricardo arrived too early. He realised it when he glanced at the car clock.",
-        triggers: [
-          "Gambling/betting addiction and compulsive behaviour",
-          "Financial stress and consequences",
-          "Anxiety and emotional distress",
-          "Family conflict",
-          "Intense language (no sensationalism)",
-        ],
-        presentation: [
-          "After the promise comes the fall. After the fall comes the question: what now?",
-          "The Glass Tiger: Cemetery of Illusions is the volume in which the game stops being the protagonist and makes room for people — men and women who reached the edge not through moral weakness, but by believing in an exit that never existed.",
-          "In this book, the reader follows a support group formed by people addicted to digital betting games. Each meeting reveals a different story: how they found the game, what their lives looked like, where they believed they were in control — and the moment they realised they were only trying to escape their own pain.",
-          "This is not a book about sensationalising ruin.",
-          "It is a book about awareness.",
-          "By listening to these accounts, the reader understands that the game does not destroy only finances; it distorts the sense of time, hope, and human relationships. The promise of easy money reveals itself, in every story, as what it truly is: a postponement of pain that returns multiplied.",
-          "With a psychological, human, responsible narrative, The Glass Tiger shows that rock bottom is not a single place — it is a silent process. And that getting out of it does not depend on luck, but on recognition, voice, and collective support.",
-          "Though set in Brazil, this is a universal story. Because the mechanisms of digital addiction cross borders, cultures, and social classes. And because the illusion of control is a global trap.",
-          "This book has a clear role within the trilogy: to teach, without moralising, that escape does not pay. That the game is not worth it. And that facing pain, however hard, costs less than disappearing while trying to avoid it.",
-          "The Glass Tiger is the volume in which the reader understands, definitively, that there is no possible victory in this game — only the chance to interrupt the cycle before it takes everything.",
-          "Happy reading!",
-        ],
+    algorithm: {
+      title: "Inside the Algorithm",
+      lead:
+        "Two lenses to see what the interface hides: Near-Miss Engineering and the Dew Point.",
+      blocks: [
+        {
+          title: "Near-Miss Engineering",
+          subtitle: "When winning isn’t the goal — staying is.",
+          body:
+            "A design that manufactures ‘almost-wins’ and micro-rewards to keep the brain chasing the next spin. The system tunes stimuli (pace, color, sound, timing) to turn frustration into persistence — without ever needing an explicit lie."
+        },
+        {
+          title: "Dew Point",
+          subtitle: "The vulnerable hour when the mind drops its guard.",
+          body:
+            "A decision window shaped by fatigue, silence, and isolation. The platform learns patterns: when you tend to give in, which message ‘works’, which trigger pulls you back into the cycle."
+        }
+      ],
+      section2Title: "Predatory retention signals",
+      bullets: [
+        "Intermittent reinforcement (unpredictability hooks).",
+        "Near-wins (the brain reads it as ‘almost’).",
+        "Low friction to continue; high friction to stop.",
+        "Notifications timed to vulnerability.",
+        "Social normalization: “just distraction”, “helps me cope”."
+      ]
+    },
+    authors: {
+      title: "About the Authors",
+      lead:
+        "Written by two authors to translate what is intimate, technical, and social: addiction as architecture.",
+      people: [
+        {
+          name: "Jefferson Patrik Germinari",
+          role: "Author",
+          bio:
+            "Psychological and investigative writing about behavior, pain, and repetition — where the promise of control turns into captivity."
+        },
+        {
+          name: "Marcos Ewerton Germinari",
+          role: "Author",
+          bio:
+            "Narrative focus on the machinery behind desire: systems, incentives, and the invisible aesthetics that sustain ‘staying’."
+        }
+      ]
+    },
+    community: {
+      title: "Support Portal",
+      kicker: "COMMUNITY",
+      lead:
+        "Community, forum, and a cycle-breaking journal. Ready for Supabase Auth + database.",
+      resources: {
+        kicker: "RESOURCES",
+        title: "Support channels and tools",
+        lead:
+          "A curated list of free and specialized support resources (Brazil and worldwide) plus digital barriers to reduce relapse during urge moments.",
+        disclaimer:
+          "Informational only. Not a substitute for professional care. If you’re in crisis, seek local health services and trusted people.",
+        tabChannels: "Support channels",
+        tabTools: "Apps & devices",
+        open: "Open website",
+        noLink: "No direct link",
+        phone: "Phone",
+        whatsapp: "WhatsApp",
+        email: "Email"
       },
       hub: {
         loginTitle: "Login/Sign up",
@@ -723,6 +658,137 @@ export const dict = {
         "Tiger Effect is a literary work and a community project. If you’re at risk or in distress, seek professional help and trusted people.",
       rights: "© 2026 Tiger Effect. All rights reserved."
     }
-  }
+  
+
+    bookPages: {
+      eyebrow: "TRILOGY",
+      backToTrilogy: "Back to The Trilogy",
+      whatYoullFind: "What you’ll find inside",
+      microExcerpt: "Micro excerpt",
+      presentationTitle: "Introduction",
+      contentNotice: "Content notice",
+      contentNoticeLead:
+        "The central topic is Gambling Disorder (online betting), focused on understanding, prevention and recovery — without glamourising the behaviour.",
+      sampleTitle: "Read a sample",
+      sampleLead:
+        "A short excerpt so you can feel the rhythm and tone (no meaningful spoilers).",
+
+      efeitoTigre: {
+        vol: "BOX / Manifesto",
+        title: "Tiger Effect",
+        subtitle: "The trilogy’s introduction and core idea",
+        cover: "/books/en/box.png",
+        synopsis:
+          "A trilogy about online betting addiction and predatory algorithms. It’s not about weakness — it’s about a system built to keep you playing.",
+        bullets: [
+          "What the ‘Tiger Effect’ is and why it captures attention",
+          "Why staying matters more than winning",
+          "How near-miss design fuels compulsive return",
+          "The full arc: promise, collapse and recovery"
+        ],
+        excerpt:
+          "Real profit isn’t in winning — it’s in staying.",
+        presentation: [
+          "‘Tiger Effect’ frames the trilogy as a narrative map of Gambling Disorder in the era of digital betting: first the promise, then the capture, and finally the practical attempt to break the loop.",
+          "The story refuses to blame individuals. It looks at product logic: intermittent reinforcement, near-misses, personalisation and an environment shaped to make choices feel ‘free’.",
+          "Each volume deepens a layer: the easy-money hook, the algorithmic architecture, and — in the end — rebuilding through barriers, language and collective support.",
+          "The goal is simple and hard: recognise the mechanism in time to interrupt it."
+        ],
+        triggers: [
+          "Betting/gambling and compulsive behaviour",
+          "Financial stress and emotional pressure",
+          "Digital manipulation and intermittent reinforcement"
+        ],
+        buyUrl: "#"
+      },
+
+      nasGarrasDoTigre: {
+        vol: "Vol. 1",
+        title: "In the Tiger’s Grip",
+        subtitle: "The easy-money hook",
+        cover: "/books/en/vol1.png",
+        synopsis:
+          "The beginning of the loop: when the promise of ‘fixing everything’ meets fatigue, silence and a click. The fall isn’t sudden — it’s repetitive.",
+        bullets: [
+          "The first contact with the promise and its ‘proofs’",
+          "Near-misses and the illusion of control",
+          "Emotional triggers: fatigue, grief, loneliness, shame",
+          "Losing spontaneity, time and attention",
+          "How ‘profit’ becomes a justification"
+        ],
+        excerpt:
+          "No one starts for the money. The money comes later — as an excuse.",
+        presentation: [
+          "Volume 1 opens through the most common doorway: the promise — arriving at the exact moment the mind wants an escape and the body is exhausted.",
+          "Little by little, the game stops being an event and becomes routine. You don’t notice ‘when you got in’, because it happens through micro-decisions: one more try, one more day, one more breath.",
+          "The book follows the shift: curiosity into habit; habit into compensation; compensation into loss of control."
+        ],
+        triggers: [
+          "Betting/gambling and compulsion",
+          "Anxiety, stress and loneliness",
+          "Debt and urgency"
+        ],
+        buyUrl: "#"
+      },
+
+      aFomeDoTigre: {
+        vol: "Vol. 2",
+        title: "The Tiger’s Hunger",
+        subtitle: "The architecture of the abyss",
+        cover: "/books/en/vol2.png",
+        synopsis:
+          "Here the focus changes: less ‘luck’, more system. What looks like personal choice reveals a mechanism that learns, measures and nudges.",
+        bullets: [
+          "How products shape behaviour through repetition",
+          "Near-miss engineering and intermittent reinforcement",
+          "Personalisation: when the system ‘reads’ you",
+          "The profit illusion and the real cost of the loop",
+          "Why the question stops being ‘why did I click?’"
+        ],
+        excerpt:
+          "The problem isn’t the click — it’s the system learning from every click.",
+        presentation: [
+          "Volume 2 enters the ‘architecture’: how the experience is designed to keep you close to the button, even when you already know you’re losing.",
+          "Hunger becomes metaphor: not only hunger for money, but hunger for relief, numbness, quick meaning — and the system serves it in measured doses.",
+          "You realise the loop doesn’t depend on winning. It depends on hope constantly refreshed by near-wins."
+        ],
+        triggers: [
+          "Betting/gambling and compulsive behaviour",
+          "Algorithmic manipulation and urgency",
+          "Financial loss and family conflict"
+        ],
+        buyUrl: "#"
+      },
+
+      oTigreDeVidro: {
+        vol: "Vol. 3",
+        title: "The Glass Tiger: Cemetery of Illusions",
+        subtitle: "Recovery and support",
+        cover: "/books/en/vol3.png",
+        synopsis:
+          "After the collapse, the real question arrives: how do you live without the promise? The way out isn’t luck — it’s recognition, voice and presence.",
+        bullets: [
+          "Support groups and the power of the collective",
+          "Interruptions: small, repeated, imperfect",
+          "Digital barriers to protect against impulses",
+          "Rebuilding routine, body and language",
+          "After the game: guilt, repair and starting again"
+        ],
+        excerpt:
+          "The group doesn’t exist to save. It exists to interrupt trajectories.",
+        presentation: [
+          "In the finale, the trilogy shifts the centre: the ‘game’ fades and people appear — and with them, the quiet labour of returning to life without addiction.",
+          "The group isn’t a miracle. It’s a human map: each story becomes a mirror, each meeting becomes a brake.",
+          "Recovery is portrayed as practice: barriers, routine, speech and small choices repeated until they become structure."
+        ],
+        triggers: [
+          "Betting/gambling and relapse",
+          "Guilt, shame and social pressure",
+          "Financial crisis situations"
+        ],
+        buyUrl: "#"
+      }
+    },
+}
 } as const;
 
