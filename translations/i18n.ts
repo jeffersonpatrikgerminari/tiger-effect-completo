@@ -262,8 +262,7 @@ export const dict = {
       note:
         "Efeito Tigre é uma obra literária e um projeto comunitário. Se você estiver em risco ou em sofrimento, procure apoio profissional e pessoas de confiança.",
       rights: "© 2026 Efeito Tigre. Todos os direitos reservados."
-    }
-  
+    },
 
     bookPages: {
       eyebrow: "TRILOGIA",
@@ -657,8 +656,7 @@ export const dict = {
       note:
         "Tiger Effect is a literary work and a community project. If you’re at risk or in distress, seek professional help and trusted people.",
       rights: "© 2026 Tiger Effect. All rights reserved."
-    }
-  
+    },
 
     bookPages: {
       eyebrow: "TRILOGY",
@@ -791,4 +789,3 @@ export const dict = {
     },
 }
 } as const;
-
