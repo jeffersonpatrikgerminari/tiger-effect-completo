@@ -48,7 +48,11 @@ export default function BookLanding({ bookKey }: { bookKey: BookKey }) {
       </div>
 
       <div className="grid gap-8 lg:grid-cols-[320px_1fr] items-start">
-        <div className="sticky top-24">
+        {/*
+          Mobile: keep cover in normal flow (no sticky) so content never slides under the cover.
+          Desktop: sticky sidebar.
+        */}
+        <div className="lg:sticky lg:top-24">
           <GlowCard className="overflow-hidden">
             <div className="relative h-[460px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
               <Image
