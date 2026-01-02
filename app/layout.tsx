@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StickyCta from "@/components/StickyCta";
 import LangProvider from "@/components/LangProvider";
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -22,8 +23,9 @@ export default function RootLayout({
       <body className={`${sans.variable} ${mono.variable} noise`}>
         <LangProvider>
           <Navbar />
-          <main className="relative z-10">{children}</main>
+          <main className="relative z-10 pb-20 md:pb-0">{children}</main>
           <Footer />
+          <StickyCta />
         </LangProvider>
       </body>
     </html>

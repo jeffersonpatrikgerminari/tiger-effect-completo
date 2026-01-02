@@ -25,6 +25,12 @@ export const dict = {
       required: "Obrigatório",
       optional: "Opcional"
     },
+    stickyCta: {
+      label: "Ações rápidas",
+      buy: "Comprar",
+      sample: "Ler amostra",
+      support: "Portal de apoio"
+    },
     home: {
       heroTag: "Dark Noir / Tech",
       heroTitle: "O jogo não quer que você vença, ele quer que você fique.",
@@ -35,6 +41,7 @@ export const dict = {
       ctaCommunity: "Entrar no Portal de Apoio",
       heroCover: "/books/pt/box.png",
       proofTitle: "Sobre o que é o Efeito Tigre",
+      proofLead: "Três volumes. Três atos. Um mergulho narrativo para entender — e resistir.",
       proofPoints: [
         "A queda individual: o silêncio, a madrugada e a mente negociando com o abismo.",
         "A arquitetura do sistema: retenção, quase-vitórias e design predatório.",
@@ -55,6 +62,10 @@ export const dict = {
       title: "A Trilogia",
       lead:
         "Três volumes, um mesmo padrão: o lucro real não está na vitória — está na permanência.",
+      coversTitle: "Capas",
+      coversLead:
+        "Deslize para explorar cada volume — e clique para mergulhar na página do livro.",
+
       boxText:
         "Não é sobre “perdedores”. É sobre a mentira moderna do atalho — e o preço do ciclo.",
       boxCover: "/books/pt/box.png",
@@ -419,6 +430,12 @@ export const dict = {
       required: "Required",
       optional: "Optional"
     },
+    stickyCta: {
+      label: "Quick actions",
+      buy: "Buy",
+      sample: "Read sample",
+      support: "Support portal"
+    },
     home: {
       heroTag: "Dark Noir / Tech",
       heroTitle: "The game doesn’t want you to win — it wants you to stay.",
@@ -429,6 +446,7 @@ export const dict = {
       ctaCommunity: "Enter the Support Portal",
       heroCover: "/books/en/box.png",
       proofTitle: "What Tiger Effect is about",
+      proofLead: "Three volumes. Three acts. A narrative dive to understand — and resist.",
       proofPoints: [
         "The individual fall: silence, late nights, and a mind bargaining with the abyss.",
         "The system’s architecture: retention, near-wins, and predatory design.",
@@ -449,6 +467,10 @@ export const dict = {
       title: "The Trilogy",
       lead:
         "Three volumes, one pattern: the real profit isn’t in winning — it’s in staying.",
+      coversTitle: "Covers",
+      coversLead:
+        "Swipe to explore each volume — then click to dive into the book page.",
+
       boxText:
         "Not about “losers”. About the modern lie of shortcuts — and the cost of the cycle.",
       boxCover: "/books/en/box.png",

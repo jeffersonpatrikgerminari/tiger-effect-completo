@@ -1,8 +1,7 @@
 "use client";
 
-import { ShieldAlert, Cpu, Users } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import GlowCard from "@/components/GlowCard";
+import StoryScroll from "@/components/StoryScroll";
 import BookCard from "@/components/BookCard";
 import HeroBestseller from "@/components/HeroBestseller";
 import { useI18n } from "@/components/LangProvider";
@@ -24,51 +23,9 @@ export default function HomePage() {
       />
 
       {/* Proof points */}
-      <section className="mx-auto max-w-6xl px-4 py-14">
-        <SectionHeader title={t("home.proofTitle")} />
-        <div className="mt-8 grid md:grid-cols-3 gap-4">
-          <GlowCard>
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl border border-white/10 bg-white/5 grid place-items-center">
-                <ShieldAlert className="h-5 w-5 text-alert" />
-              </div>
-              <div>
-                <div className="text-xs font-mono text-white/55">Vol. 1</div>
-                <div className="font-semibold">{(t("home.pillarLabels") as string[])[0]}</div>
-              </div>
-            </div>
-            <p className="mt-3 text-sm text-white/70">{(t("home.proofPoints") as string[])[0]}</p>
-          </GlowCard>
+      <StoryScroll />
 
-          <GlowCard>
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl border border-white/10 bg-white/5 grid place-items-center">
-                <Cpu className="h-5 w-5 text-gold-soft" />
-              </div>
-              <div>
-                <div className="text-xs font-mono text-white/55">Vol. 2</div>
-                <div className="font-semibold">{(t("home.pillarLabels") as string[])[1]}</div>
-              </div>
-            </div>
-            <p className="mt-3 text-sm text-white/70">{(t("home.proofPoints") as string[])[1]}</p>
-          </GlowCard>
-
-          <GlowCard>
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl border border-white/10 bg-white/5 grid place-items-center">
-                <Users className="h-5 w-5 text-white/80" />
-              </div>
-              <div>
-                <div className="text-xs font-mono text-white/55">Vol. 3</div>
-                <div className="font-semibold">{(t("home.pillarLabels") as string[])[2]}</div>
-              </div>
-            </div>
-            <p className="mt-3 text-sm text-white/70">{(t("home.proofPoints") as string[])[2]}</p>
-          </GlowCard>
-        </div>
-      </section>
-
-      {/* Trilogy showcase */}
+{/* Trilogy showcase */}
       <section className="mx-auto max-w-6xl px-4 py-14">
         <SectionHeader title={t("trilogy.title")} lead={t("trilogy.lead")} />
         <div className="mt-8 grid lg:grid-cols-3 gap-4">

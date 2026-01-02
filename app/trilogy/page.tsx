@@ -2,6 +2,7 @@
 
 import SectionHeader from "@/components/SectionHeader";
 import BookCard from "@/components/BookCard";
+import CoverCarousel from "@/components/CoverCarousel";
 import GlowCard from "@/components/GlowCard";
 import { useI18n } from "@/components/LangProvider";
 
@@ -21,6 +22,20 @@ export default function TrilogyPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
       <SectionHeader title={t("trilogy.title")} lead={t("trilogy.lead")} />
+
+      <div className="mt-10" id="covers">
+        <SectionHeader title={t("trilogy.coversTitle")} lead={t("trilogy.coversLead")} />
+        <div className="mt-6">
+          <CoverCarousel
+            items={books.map((b: any) => ({
+              vol: String(b.vol || ""),
+              title: String(b.title || ""),
+              cover: String(b.cover || ""),
+              href: String(b.href || "/trilogy")
+            }))}
+          />
+        </div>
+      </div>
 
       <div className="mt-8 grid lg:grid-cols-3 gap-4">
         {books.map((b) => (
