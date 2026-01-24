@@ -174,6 +174,7 @@ export const dict = {
         {
           name: "Marcos Ewerton Germinari",
           role: "Autor",
+          photo: "/authors/marcos.webp",
           bio:
             "Foco narrativo na engrenagem por trás do desejo: sistemas, incentivos e a estética invisível que sustenta a permanência."
         }
@@ -598,6 +599,7 @@ export const dict = {
         {
           name: "Marcos Ewerton Germinari",
           role: "Author",
+          photo: "/authors/marcos.webp",
           bio:
             "Narrative focus on the machinery behind desire: systems, incentives, and the invisible aesthetics that sustain ‘staying’."
         }
