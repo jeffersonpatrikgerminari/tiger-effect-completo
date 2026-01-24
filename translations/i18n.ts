@@ -167,7 +167,7 @@ export const dict = {
         {
           name: "Jefferson Patrik Germinari",
           role: "Autor",
-          photo: "public/authors/jefferson.webp",
+          photo: "/authors/jefferson.webp",
           bio:
             "Escrita psicológica e investigativa sobre comportamento, dor e repetição — onde a promessa de controle vira aprisionamento."
         },
