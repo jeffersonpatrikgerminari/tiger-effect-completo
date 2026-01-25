@@ -18,7 +18,7 @@ export default function AuthorsPage() {
         {people.map((p) => (
           <GlowCard key={p.name}>
             <div className="flex items-start gap-4">
-              <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+              <div className="relative h-16 w-16 overflow-hidden rounded-2xl border border-white/10 bg-white/5">
                 {p.photo ? (
                   <Image
                     src={p.photo}
